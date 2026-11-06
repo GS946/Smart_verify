@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: smartverify-db
+    environment:
+      POSTGRES_USER: aicte_user
+      POSTGRES_PASSWORD: aicte_password
+      POSTGRES_DB: aicte_smartverify
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aicte_user -d aicte_smartverify"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: smartverify-backend
+    environment:
+      DATABASE_URL: postgresql://aicte_user:aicte_password@db:5432/aicte_smartverify
+      OFFLINE_MODE: "true"
+      SECRET_KEY: "aicte_smartverify_demo_secret_key_sih2026"
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./rules:/app/rules
+      - ./knowledge_base:/app/knowledge_base
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: smartverify-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

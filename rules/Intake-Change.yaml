@@ -1,0 +1,67 @@
+category: "Intake-Change"
+academic_year: "2026-27"
+version: "1.0.0"
+rules:
+  - rule_id: "RULE-CROSS-INTK-003"
+    name: "Intake Revision Ceiling Check"
+    description: "Proposed intake increase must not exceed currently approved baseline without sanctioned variation."
+    applies_to: ["Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Critical"
+    clause_ref: "SYNTHETIC-DEMO-CH3-CL5.4"
+    version: "1.0.0"
+    params:
+      field_declared: "declared_intake"
+      field_baseline: "approved_intake"
+
+  - rule_id: "RULE-DOC-ACCR-005"
+    name: "Valid NBA Accreditation for Intake Expansion"
+    description: "Programmes seeking intake increase must have active accreditation."
+    applies_to: ["Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "validity"
+    severity: "Major"
+    clause_ref: "SYNTHETIC-DEMO-CH4-CL7.1"
+    version: "1.0.0"
+    params:
+      doc_type: "Accreditation certificate"
+      require_valid_date: true
+
+  - rule_id: "RULE-PAY-TER-004"
+    name: "TER Fee Payment for Intake Variation"
+    description: "TER processing fee must be verified as PAID in AICTE financial records."
+    applies_to: ["Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Major"
+    clause_ref: "SYNTHETIC-DEMO-CH1-CL2.4"
+    version: "1.0.0"
+    params:
+      field_baseline: "ter_payment_status"
+      expected_value: "PAID"
+
+  - rule_id: "RULE-ANOM-DUPDOC-006"
+    name: "Cross-Institutional Document Reuse"
+    description: "Submitted statutory documents must not match hash of documents submitted by other institutions."
+    applies_to: ["Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Critical"
+    clause_ref: "SYNTHETIC-DEMO-CH1-CL1.8"
+    version: "1.0.0"
+    params:
+      check_hash_collision: true
+
+  - rule_id: "RULE-INFR-PHOTO-007"
+    name: "Infrastructure Photographic Evidence Completeness & Distinctness"
+    description: "Photographs must meet clarity standards and not be duplicated."
+    applies_to: ["Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "threshold"
+    severity: "Major"
+    clause_ref: "SYNTHETIC-DEMO-CH5-CL8.4"
+    version: "1.0.0"
+    params:
+      min_distinct_photos: 4
+      max_phash_similarity: 90

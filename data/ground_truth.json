@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "generation_date": "2026-10-26T18:54:20.892609",
+    "hero_institution_id": "AICTE-SIT-001",
+    "total_institutions": 40,
+    "baseline_assumptions": {
+      "manual_review_minutes_per_app": 45,
+      "ai_assisted_minutes_per_app": 8,
+      "estimated_time_saving_pct": 82.2
+    }
+  },
+  "defects": {
+    "APP-2026-SIT01": {
+      "institution_name": "Sunrise Institute of Technology",
+      "institution_id": "AICTE-SIT-001",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "intake_mismatch",
+          "rule_id": "RULE-CROSS-INTK-003",
+          "severity": "Critical",
+          "declared": 120,
+          "baseline": 60,
+          "reason": "Declared intake of 120 seats exceeds AICTE baseline record of 60 seats without sanctioned variation"
+        },
+        {
+          "type": "unpaid_ter",
+          "rule_id": "RULE-PAY-TER-004",
+          "severity": "Major",
+          "status": "PENDING",
+          "reason": "Technical Education Regulatory (TER) fee payment status is PENDING in AICTE financial database"
+        },
+        {
+          "type": "reused_statutory_doc",
+          "rule_id": "RULE-ANOM-DUPDOC-006",
+          "severity": "Critical",
+          "reused_with": "AICTE-PIN-007",
+          "reason": "Fire Safety NOC SHA-256 fingerprint matches document submitted by another institution (Pioneer Institute of Technology)"
+        },
+        {
+          "type": "tampered_validity_date",
+          "rule_id": "RULE-DOC-AFFL-002",
+          "severity": "Critical",
+          "doc_type": "NOC-Affiliating University",
+          "displayed_date": "2027-06-30",
+          "signed_payload_date": "2024-06-30",
+          "reason": "Affiliation certificate displays 2027-06-30 but cryptographic payload confirms expiration on 2024-06-30"
+        },
+        {
+          "type": "expired_accreditation",
+          "rule_id": "RULE-DOC-ACCR-005",
+          "severity": "Major",
+          "doc_type": "Accreditation certificate",
+          "expiry_date": "2024-05-31",
+          "reason": "Accreditation certificate expired on 2024-05-31"
+        },
+        {
+          "type": "near_duplicate_photos",
+          "rule_id": "RULE-INFR-PHOTO-007",
+          "severity": "Major",
+          "photo_a": "APP-2026-SIT01_infra_computer_lab.jpg",
+          "photo_b": "APP-2026-SIT01_infra_library.jpg",
+          "reason": "Infrastructure photo for Library is a near-duplicate perceptual match (pHash distance < 5) to Computer Lab photo"
+        }
+      ]
+    },
+    "APP-2026-GPI06": {
+      "institution_name": "Greenfield Polytechnic Institute",
+      "institution_id": "AICTE-GPI-006",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "issuer_outage",
+          "severity": "Minor",
+          "adapter": "AffiliatingUniversityAdapter",
+          "status": "SOURCE_UNAVAILABLE",
+          "reason": "Affiliating University registry server timed out (deterministic simulation)"
+        }
+      ]
+    },
+    "APP-2026-TIS11": {
+      "institution_name": "Trinity Institute of Polytechnic Studies",
+      "institution_id": "AICTE-TIS-011",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "intake_mismatch",
+          "rule_id": "RULE-CROSS-INTK-003",
+          "severity": "Critical",
+          "declared": 180,
+          "baseline": 120,
+          "reason": "Declared intake 180 exceeds baseline 120"
+        }
+      ]
+    },
+    "APP-2026-RCI13": {
+      "institution_name": "Royal Crown Institute of Management & Tech",
+      "institution_id": "AICTE-RCI-013",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "issuer_pending",
+          "severity": "Minor",
+          "adapter": "DigiLockerAdapter",
+          "status": "PENDING",
+          "reason": "DigiLocker response pending verification"
+        }
+      ]
+    },
+    "APP-2026-OIT16": {
+      "institution_name": "Orion Institute of Technology",
+      "institution_id": "AICTE-OIT-016",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "unpaid_ter",
+          "rule_id": "RULE-PAY-TER-004",
+          "severity": "Major",
+          "status": "PENDING",
+          "reason": "TER fee payment status is PENDING"
+        }
+      ]
+    },
+    "APP-2026-GGP19": {
+      "institution_name": "Golden Gate Polytechnic College",
+      "institution_id": "AICTE-GGP-019",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "blurred_photo",
+          "severity": "Minor",
+          "photo_type": "Computer Lab",
+          "reason": "Computer Lab photo fails clarity benchmark (Laplacian variance < 50)"
+        }
+      ]
+    },
+    "APP-2026-MIT21": {
+      "institution_name": "Meridian Institute of Technology",
+      "institution_id": "AICTE-MIT-021",
+      "category": "EoA-Continuation",
+      "injected_defects": [
+        {
+          "type": "expired_document",
+          "rule_id": "RULE-DOC-FIRE-001",
+          "severity": "Critical",
+          "doc_type": "NOC-Fire",
+          "expiry_date": "2025-12-31",
+          "reason": "Fire Safety NOC expired on 2025-12-31"
+        }
+      ]
+    },
+    "APP-2026-SIT26": {
+      "institution_name": "Sterling Institute of Technology",
+      "institution_id": "AICTE-SIT-026",
+      "category": "New-Programme",
+      "injected_defects": [
+        {
+          "type": "expired_accreditation",
+          "rule_id": "RULE-DOC-ACCR-005",
+          "severity": "Major",
+          "doc_type": "Accreditation certificate",
+          "expiry_date": "2025-01-15",
+          "reason": "Accreditation certificate expired"
+        }
+      ]
+    },
+    "APP-2026-AVE31": {
+      "institution_name": "Amber Valley Engineering College",
+      "institution_id": "AICTE-AVE-031",
+      "category": "New-Programme",
+      "injected_defects": [
+        {
+          "type": "missing_document",
+          "rule_id": "RULE-DOC-STATE-008",
+          "severity": "Critical",
+          "doc_type": "NOC-State Govt",
+          "reason": "Mandatory State Government NOC document is missing from submission"
+        }
+      ]
+    }
+  }
+}

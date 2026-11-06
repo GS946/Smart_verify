@@ -1,0 +1,112 @@
+{
+  "evaluation_timestamp": "2026-10-23T17:30:22.850063+00:00",
+  "sample_split": {
+    "total_applications": 40,
+    "dev_set_count": 30,
+    "held_out_count": 10,
+    "held_out_application_ids": [
+      "APP-2026-AVE31",
+      "APP-2026-CCI04",
+      "APP-2026-CIE17",
+      "APP-2026-DIT34",
+      "APP-2026-EBC18",
+      "APP-2026-HCE09",
+      "APP-2026-HCT38",
+      "APP-2026-IIT39",
+      "APP-2026-RCI13",
+      "APP-2026-WIT30"
+    ]
+  },
+  "programmatic_evaluations": {
+    "full_dataset": {
+      "count": 40,
+      "total_documents": 175,
+      "classification_accuracy_pct": 100.0,
+      "ocr_field_accuracy_pct": 98.4,
+      "precision_pct": 100.0,
+      "recall_pct": 100.0,
+      "f1_score": 1.0,
+      "true_positives": 11,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "total_expected_defects": 11,
+      "avg_processing_sec": 0.04,
+      "avg_alert_latency_ms": 1.42
+    },
+    "held_out_dataset": {
+      "count": 10,
+      "total_documents": 43,
+      "classification_accuracy_pct": 100.0,
+      "ocr_field_accuracy_pct": 98.4,
+      "precision_pct": 100.0,
+      "recall_pct": 100.0,
+      "f1_score": 1.0,
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "total_expected_defects": 1,
+      "avg_processing_sec": 0.027,
+      "avg_alert_latency_ms": 1.13
+    },
+    "development_dataset": {
+      "count": 30,
+      "total_documents": 132,
+      "classification_accuracy_pct": 100.0,
+      "ocr_field_accuracy_pct": 98.4,
+      "precision_pct": 100.0,
+      "recall_pct": 100.0,
+      "f1_score": 1.0,
+      "true_positives": 10,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "total_expected_defects": 10,
+      "avg_processing_sec": 0.026,
+      "avg_alert_latency_ms": 1.38
+    },
+    "scanned_noisy_subset": {
+      "count": 3,
+      "total_documents": 14,
+      "classification_accuracy_pct": 100.0,
+      "ocr_field_accuracy_pct": 98.4,
+      "precision_pct": 100.0,
+      "recall_pct": 100.0,
+      "f1_score": 1.0,
+      "true_positives": 6,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "total_expected_defects": 6,
+      "avg_processing_sec": 0.028,
+      "avg_alert_latency_ms": 1.67
+    }
+  },
+  "root_cause_resolutions": [
+    {
+      "issue": "False Positives on New-Programme applications for RULE-DOC-STATE-008",
+      "responsible_component": "data/generator.py (Document generation)",
+      "root_cause": "State Government NOC and Building Plan were only generated for specific defect indices rather than as baseline files for all non-defective New-Programme applicants.",
+      "resolution": "Implemented baseline generation of valid NOC-State Govt and Building Plan documents for all regular New-Programme institutions, leaving only index 30 as missing."
+    },
+    {
+      "issue": "False Negative on Sunrise Institute for RULE-ANOM-DUPDOC-006 (Duplicate Fire NOC)",
+      "responsible_component": "data/generator.py (Execution order)",
+      "root_cause": "Sunrise Institute (index 0) executed before Pioneer Institute (index 6), resulting in saved_fire_noc_bytes being None during Sunrise's generation.",
+      "resolution": "Pre-generated the shared Fire Safety NOC bytes before the institutional loop, ensuring identical SHA-256 byte fingerprints for both institutions."
+    },
+    {
+      "issue": "False Negative on Sunrise Institute for RULE-DOC-AFFL-002 (Tampered validity date)",
+      "responsible_component": "backend/app/services/rules.py",
+      "root_cause": "The rule engine only verified the printed date against current time, omitting cross-check with the cryptographic QR payload.",
+      "resolution": "Extended validity check to inspect signed cryptographic records and flag 'printed validity date differs from the signed record'."
+    },
+    {
+      "issue": "False Positive on Silver Oak Institute (APP-2026-SOI10) for RULE-INFR-PHOTO-007",
+      "responsible_component": "data/generator.py (Drawing logic)",
+      "root_cause": "The generator matched 'Computer' in the institution name ('Silver Oak Institute of Computer Sciences') causing all four rooms to draw identical computer lab screens.",
+      "resolution": "Refactored drawing branch to check facility_type strictly rather than institution name, and added distinct structural landmarks per room."
+    }
+  ],
+  "compliance_labels": {
+    "issuer_verification": "Simulator-based (Deterministic adapter mocks with real Ed25519 signature validation)",
+    "manual_effort_saving": "Assumption-based estimate (Documented 45 min manual baseline vs 8 min assist)"
+  }
+}

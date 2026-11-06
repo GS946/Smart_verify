@@ -1,0 +1,97 @@
+category: "EoA-Continuation"
+academic_year: "2026-27"
+version: "1.0.0"
+rules:
+  - rule_id: "RULE-DOC-FIRE-001"
+    name: "Valid Fire Safety NOC Required"
+    description: "Institution must submit a valid, non-expired Fire Safety NOC issued by the competent State Fire Authority."
+    applies_to: ["EoA-Continuation", "New-Programme", "Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "validity"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 2.14 / App. 4"
+    version: "1.0.0"
+    params:
+      doc_type: "NOC-Fire"
+      require_valid_date: true
+      min_validity_buffer_days: 30
+
+  - rule_id: "RULE-DOC-AFFL-002"
+    name: "Affiliating University NOC / Affiliation Certificate"
+    description: "Affiliation certificate from the affiliating university must be valid for the current academic session with no date irregularities."
+    applies_to: ["EoA-Continuation", "Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "validity"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 2.15 / App. 3"
+    version: "1.0.0"
+    params:
+      doc_type: "NOC-Affiliating University"
+      require_valid_date: true
+
+  - rule_id: "RULE-CROSS-INTK-003"
+    name: "Approved Intake Consistency with AICTE Records"
+    description: "Declared intake in application must match or be within AICTE previously approved intake limits unless an approved variation has been granted."
+    applies_to: ["EoA-Continuation"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 1.8 / Chapter 1"
+    version: "1.0.0"
+    params:
+      field_declared: "declared_intake"
+      field_baseline: "approved_intake"
+      tolerance_pct: 0
+
+  - rule_id: "RULE-PAY-TER-004"
+    name: "Technical Education Regulatory (TER) Fee Payment"
+    description: "TER processing fee must be verified as PAID in AICTE financial records prior to scrutiny."
+    applies_to: ["EoA-Continuation", "New-Programme", "Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Major"
+    clause_ref: "AICTE APH 2024-27 Clause 2.4 / Chapter 2"
+    version: "1.0.0"
+    params:
+      field_baseline: "ter_payment_status"
+      expected_value: "PAID"
+
+  - rule_id: "RULE-DOC-ACCR-005"
+    name: "Accreditation Certificate Validity"
+    description: "Where NBA / NAAC accreditation is claimed for eligible courses, validity must extend through the commencement of the academic session."
+    applies_to: ["EoA-Continuation", "Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "validity"
+    severity: "Major"
+    clause_ref: "AICTE APH 2024-27 Clause 2.16 / App. 6"
+    version: "1.0.0"
+    params:
+      doc_type: "Accreditation certificate"
+      require_valid_date: true
+
+  - rule_id: "RULE-ANOM-DUPDOC-006"
+    name: "Cross-Institutional Document Reuse"
+    description: "Submitted statutory documents must not match hash or perceptual fingerprint of documents submitted by other distinct institutions."
+    applies_to: ["EoA-Continuation", "New-Programme", "Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 1.14 / Chapter 1"
+    version: "1.0.0"
+    params:
+      check_hash_collision: true
+      check_cross_institution: true
+
+  - rule_id: "RULE-INFR-PHOTO-007"
+    name: "Infrastructure Photographic Evidence Completeness & Distinctness"
+    description: "Photographs of computer lab, library, workshop and classrooms must meet clarity standards and not be duplicated or reused."
+    applies_to: ["EoA-Continuation", "New-Programme", "Intake-Change"]
+    academic_year: "2026-27"
+    check_type: "threshold"
+    severity: "Major"
+    clause_ref: "AICTE APH 2024-27 Clause 2.18 / Chapter 5"
+    version: "1.0.0"
+    params:
+      min_distinct_photos: 4
+      max_phash_similarity: 90
+

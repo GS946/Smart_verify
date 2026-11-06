@@ -1,0 +1,3409 @@
+    
+<!-- Google Custom Search -->
+
+<style>
+  /* ===== FIX TOP TOOLBAR ALIGNMENT ===== */
+
+/* ===== TOP TOOLBAR FIX ===== *//* ============================= */
+/* CLEAN TOP TOOLBAR FIX */
+/* ============================= */
+
+.rs-toolbar .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rs-toolbar .col-md-5,
+.rs-toolbar .col-md-7 {
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+.rs-toolbar-right {
+    text-align: right;
+}
+
+.rs-toolbar-right ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.rs-toolbar-right ul li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+/* ============================= */
+/* GOOGLE SEARCH CLEAN FIX */
+/* ============================= */
+
+.gcse-search-wrapper {
+    max-width: 300px;
+}
+
+.gcse-search-wrapper .gsc-control-cse {
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.gsc-branding {
+    display: none !important;
+}
+/* ================================= */
+/* 1️⃣ TOP TOOLBAR FIX (SAFE METHOD) */
+/* ================================= */
+
+.rs-toolbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rs-toolbar .col-md-5 {
+    flex: 0 0 auto;
+}
+
+.rs-toolbar .col-md-7 {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.rs-toolbar-right ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.rs-toolbar-right ul li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+
+/* ================================= */
+/* 2️⃣ MAIN MENU FORCE SINGLE LINE */
+/* ================================= */
+
+@media (min-width: 992px) {
+
+    .nav-menu {
+        white-space: nowrap;
+    }
+
+    .nav-menu > li {
+        float: left !important;
+    }
+
+    .nav-menu > li > a {
+        padding: 12px 10px !important;
+        font-size: 13px !important;
+    }
+
+}
+
+/* ================================= */
+/* FORCE MAIN MENU STRICT ONE LINE */
+/* ================================= */
+
+@media (min-width: 992px) {
+
+    .menu-area .container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .nav-menu > li {
+        float: none !important;
+        margin: 0 4px !important;
+    }
+
+    .nav-menu > li > a {
+        padding: 8px 6px !important;
+        font-size: 14px !important;
+        white-space: nowrap !important;
+    }
+
+}
+
+/* ================================= */
+/* FIX SUBMENU VERTICAL DROPDOWN */
+/* ================================= */
+
+@media (min-width: 992px) {
+
+    /* Submenu reset */
+    .nav-menu li ul {
+        display: block !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 100% !important;
+        flex-direction: column !important;
+        min-width: 220px !important;
+        background: #fff !important;
+        z-index: 9999 !important;
+    }
+
+    .nav-menu li ul li {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .nav-menu li ul li a {
+        display: block !important;
+        padding: 8px 12px !important;
+        white-space: normal !important;
+    }
+
+}
+
+</style>
+
+<div class="full-width-header">
+
+  <div class="rs-toolbar">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5">
+          <div class="rs-toolbar-left">
+            <div class="welcome-message d-flex align-items-center">
+              <div class="search-wrapper" style="width:250px;">
+              
+<form method="GET" action="https://www.google.com/search" target="_blank" style="display:flex; align-items:center;">
+
+    <input type="text"
+           name="q"
+           placeholder="Search pict.edu..."
+           required
+           style="height:32px;
+                  width:190px;
+                  padding:0 10px;
+                  border:1px solid #ccc;
+                  border-right:none;
+                  font-size:13px;
+                  outline:none;">
+
+    <input type="hidden" name="sitesearch" value="pict.edu">
+
+    <button type="submit"
+            style="height:32px;
+                   width:38px;
+                   border:none;
+                   background:#007bff;
+                   color:#fff;
+                   cursor:pointer;">
+        🔍
+    </button>
+
+</form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="rs-toolbar-right">
+            <div class="toolbar-share-icon">
+              <ul>
+                <li class="mr-3"><a href="/usefullinks/" style="color:white !important;">USEFUL LINKS</a></li>
+                <li class="mr-3"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFn9ZeutXPa7dRvq9vbYqkFqkxn4k6ojv0x7RUVzL0tZttXw/viewform" target="_blank" style="color:white !important;">Website feedback</a></li>
+                <li><a href="https://erppict.wccscas.in" target="_blank" style="color:white !important;">PICT MIS LOGIN</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER + ALL 12 MENUS EXACTLY SAME -->
+
+
+  <!-- Toolbar End -->
+
+  <!--Header Start-->
+  <header id="rs-header" class="rs-header">
+
+    <!-- Header Top Start -->
+    <div class="rs-header-top desktop" style="padding-top:0px;padding-bottom:0px;">
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-4 pr-0 mr-0 col-sm-12">
+                <div class="image1">
+                  <a href="/"><img class="image2" src="/images/pic.jpg" alt="logo" width=100 height=100></a>
+                </div>
+          </div>
+          <div class="row-flex col-md-6 col-sm-12 pl-0 m-0">
+              <div class="small-font text-center">Society for Computer Technology and Research's</div>
+              <div class="large-font text-center">PUNE INSTITUTE OF COMPUTER TECHNOLOGY</div>
+			  <div class="small-font text-center">(An Autonomous Institute affiliated to Savitribai Phule Pune University)</div>
+              <div class="small-font text-center">AICTE APPROVED | ISO 9001:2015 | NAAC A+ Grade | NBA [All Eligible UG Programs]</div>
+          </div>
+     </div>
+    </div>
+  </div>
+  <div class="rs-header-top mobile" style="padding-top:0px;padding-bottom:0px;">
+      <div class="container ">
+        <div class="row">
+          <div class="col-4">
+                <div class="text-right">
+                  <a href="/"><img src="/images/pic.jpg" alt="logo" style="padding-top:15px;" width=100 height=100></a>
+                </div>
+          </div>
+              <div class="row-flex col-8">
+                <div class="small-font text-center">Society for Computer Technology and Research's</div>
+              <div class="large-font text-center">PUNE INSTITUTE OF COMPUTER TECHNOLOGY</div>
+			  <div class="small-font text-center">(An Autonomous Institute affiliated to Savitribai Phule Pune University)</div>
+              <div class="small-font text-center">AICTE APPROVED | ISO 9001:2015 | NAAC A+ Grade | NBA [All Eligible UG Programs]</div>
+              </div>
+          
+     </div>
+    </div>
+  </div>
+  <!-- Header Top End -->
+
+  <!-- Menu Start -->
+<div class="menu-area menu-sticky">
+    <div class="container container-nav">
+      <div class="main-menu">
+        <div class="row">
+          <div class="col-sm-12">
+          <!-- <div id="logo-sticky" class="text-center">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+          </div> -->
+          <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
+          <nav class="rs-menu">
+            <ul class="nav-menu">
+              <!-- Home -->
+              <li class="menu-item-has-children"> <a href="/" class="home">Home</a>
+                
+              </li>
+              <!-- End Home --> 
+
+              <!--About Menu Start-->
+              <li class="menu-item-has-children"> <a href="#">About Us</a>
+                <ul class="sub-menu">
+                  <li> <a href="/about_us/">Overview</a>
+                  <li> <a href="/history/">History</a></li>
+                  <!-- <li><a href="/trustee-message/">Trustee's Message</a></li> -->
+                  <!-- <li><a href="/Secretary-message/">Secretary's Message</a></li>  -->
+                  <li><a href="/Director-message/">Director's Message</a></li>
+                  <li><a href="/principal-message/">Principal's Message</a></li>
+                  <li><a href="/registrar_office/">Administration Office</a></li>
+                  <li><a href="/contact_us/">Contact Us</a></li>
+
+                </ul>
+              </li>
+              <!--About Menu End--> 
+
+              <!--Admissions Menu Start-->
+              <li class=" menu-item-has-children"> <a href="https://admissions.pict.edu">Admissions</a>
+        <!--        <ul class="sub-menu">
+                  <li ><a href="/admission-ug/">First Year B.Tech. Admissions</a></li>
+				  <li ><a href="/admission-pg/">First Year M.Tech. Admissions</a></li>
+				  <li ><a href="/admission-dse/">Direct Second Year Admissions</a></li>
+				  <li ><a href="/FRA_fee_structure/">Fee Structure</a></li>
+				  <li><a href="/cutoff-FE/">Cut Off FE</a></li>
+				  <li><a href="/cutoff-SE-direct/">Cut Off SE-Direct</a></li>
+				  <li><a href="/cutoff-PG/">Cut Off PG</a></li>
+				  <li><a href="/faq/VA_FAQs - Admission 2025-26-1.pdf">FAQs</a></li>
+           <li><a href="/admission-ug/pdf/VA_PICT_Information Brochure_Prospectus_AY2025-26.pdf">Information Brochure</a></li>
+				  
+                </ul>-->
+              </li>
+              <li class=" menu-item-has-children"> <a href="/FRA_fee_structure/">FRA - FEE STRUCTURE </a>
+              <!--Admissions Menu End-->  
+
+              <!--Life@PICT Menu Start-->
+              <li class="menu-item-has-children"> <a href="/life_at_pict/">Life@PICT</a>
+                <ul class="sub-menu">
+                  
+                
+				  <li> <a href="/extracurricular/">Extra-Curricular</a></li>
+                  <li> <a href="/cocurricular/">Co-Curricular</a></li>
+                  <li><a href="/hostel/">Hostel</a></li>
+                  <li><a href="/internet/">Campus Network</a></li>
+                  <li><a href="/gallery/">Gallery</a></li>
+				  <li><a href="/library/">Library</a></li>
+				  <li><a href="/iipc-cell/" target="_blank">Institute  Industry Partnership Cell</a></li>			  
+				  <li><a href="/SWADA/" target="_blank">Student Welfare Cell</a></li>			  
+                </ul>
+              </li>
+              <!--Life@PICT Menu End-->
+
+              <!-- Departments Menu Start -->
+              <li class="  menu-item-has-children"> <a href="#">Departments</a>
+                <ul class="sub-menu"> 
+                  
+
+                  <li > <a href="/fe-dept/">Basic Sciences and Engineering(F. Y. B. Tech)</a> </li>
+                      <li > <a href="/CE-dept/">Computer Engineering</a> </li> 
+                      <li> <a href="/ENTC-dept/">Electronics and Telecommunication </a> </li>
+                      <li> <a href="/IT-dept/">Information Technology </a> </li>
+					  <li> <a href="/ECE-dept/">Electronics and Computer </a> </li>
+					  <li> <a href="/AIDS-dept/">Artificial Intelligence and Data Science </a> </li>
+                      <li><a href="/time_table_syllabus/" target="_blank">Time Table And Syllabus</a></li>
+					<li><a href="/pdf/header/Institute Academic Calendar 2026-27.pdf" target="_blank">Academic Calendar (Institute)</a></li>
+						<li><a href="/Scholarship/" target="_blank">Scholarship</a></li>
+
+                </ul>
+              </li>
+              <!--Departments Menu End -->
+
+              <!--Placements Menu Start-->
+              <li class="menu-item-has-children"> <a href="/placement/">Placement (T&P)</a>
+                <ul class="sub-menu">
+                  <li><a href="/placement/index.php#overview">Overview</a></li>
+		  <li><a href="/placement/index.php#statistics">Statistics</a></li>
+                  <li><a href="/placement/index.php#trainingactivities">Training Activities</a></li>
+		  <li><a href="/placement/index.php#contactus">Contact Us</a></li>
+                  
+                </ul>
+              </li>
+              <!--Placements Menu End-->
+			
+              <!--Cell@PICT Menu Start-->
+			  <!--
+              <li class="menu-item-has-children"> <a href="#">Cell@PICT</a>
+                <ul class="sub-menu">
+                  <li><a href="#">Entrepreneurship Development Cell</a></li>
+                  <li><a href="#">Startup and Innovation Cell</a></li>
+                  
+                  <li><a href="#">Industry Institute Partneship Cell</a></li>
+                  <li><a href="#">IPR Cell</a></li>
+                  
+                  <li><a href="#">International Relations Cell</a></li>
+                  <li><a href="#">Cyber Security Cell</a></li>
+                  
+
+                </ul>
+              </li>
+			  -->
+              <!--Cell@PICT Menu End-->
+			
+
+              <!-- Research Menu Start -->
+              <li class="menu-item-has-children"> <a href="#">Research</a>
+                <ul class="sub-menu">
+					<li class="menu-item-has-children"> <a href="#">Research Groups</a>
+                    <ul class="sub-menu">
+						<li> <a href="/advanced-communication/index.php">Advanced Communication</a> </li>
+						<li> <a href="/Artificial Intelligence and Machine Learning Group/index.php">Atificial Intelligence & Machine Learning</a> </li>
+						<li> <a href="/Computational-Linguistics-Lab/index.php">Computational Linguistics Lab</a> </li>
+						<li> <a href="/CAILMD/index.php">CENTRE FOR ANALYTICS WITH INTELLIGENT LEARNING FOR MULTIMEDIA DATA (CAILMD)</a> </li>
+						<li> <a href="/CVBDSL/index.php">Cognitive Computer Vision, Blockchain, Distributed Systems and Security Lab.(CVBDSL)</a> </li>
+						<li> <a href="/Intelligent Computing Data Mining and Big Data/index.php">Intelligent Computing, Data Mining and Big Data</a> </li>
+						<li> <a href="/ISSRL/index.php">Information and System Security Research Lab</a> </li>
+						<li> <a href="/Machine Learning and Computational Intelligence/index.php">Machine Learning and Computational Intelligence</a> </li>
+						<li> <a href="/mek-it-tronics/index.php">Mek-IT-tronics (Mechatronics)</a> </li>
+						
+												
+						<!--<li> <a href="/Multidisciplinary-Research-Lab/index.php">Multidisciplinary Research Lab</a> </li>-->
+						
+                      <!-- <li> <a href="#">Software Application Development</a> </li>                       
+                      <li> <a href="#">AI & DL, Data Science</a> </li> 
+                      <li> <a href="#">Blockchain and Distributed Systems Security</a> </li>
+                      
+                      <li> <a href="#">Embedded Systems & IoT Domain</a> </li>
+                      <li> <a href="#">Machine Learning and Computational Intelligence</a> </li>
+                      <li> <a href="#">Big Data & Text Analytics Research</a> </li>
+                      <li><a href="#">Wireless Networks</a></li>
+					  <li><a href="#">Mek-IT-tronics (Mechatronics)</a></li>
+					  
+					  <li><a href="#">3D Printer Laboratory</a></li> 
+					-->
+                    </ul>
+                  </li>
+                  <!--<li><a href="#">Publications</a></li>
+				  <li><a href="#">Patents</a></li>
+				  <li><a href="#">Projects & Product Development</a></li>
+				  <li><a href="#">Consultancy</a></li>
+				  <li><a href="#">Industry Sponsored Labs</a></li>
+				<li><a href="#">Research Centre (Ph.D.)</a></li>
+				-->
+
+                </ul>
+              </li>
+              <!--Research Menu End -->
+
+
+              
+              
+
+              <!--Library Menu Start
+              <li> <a href="/library/">Library</a></li>
+              Library Menu End-->
+
+              <!--Alumni Menu Start-->
+              <li class="menu-item-has-children"> <a href="/alumni/">Alumni</a>
+                <ul class="sub-menu">
+                  <!-- <li><a href="#">Alumni Engagement</a></li> -->
+                  <li><a href="https://alumni.pict.edu/">Alumni Portal</a></li>
+                  
+
+                </ul>
+              </li>
+              <!--Alumni Menu End-->
+
+
+              <!--IQAC Menu Start-->
+              <li class="menu-item-has-children"> <a href="#">IQAC</a>
+                <ul class="sub-menu">
+                  <li><a href="/about-iqac/">About IQAC</a></li>
+                  <li><a href="/naac/">NAAC Data</a></li>
+                  <li><a href="/NBA/">NBA Data</a></li>               
+                  <li><a href="/nirf/">NIRF Data</a></li>
+				  <li><a href="/Best-Practices/">Best Practices</a></li>
+				  <li><a href="/institution-distinctiveness/">Institution Distinctiveness</a></li>
+                </ul>
+              </li>
+              <!--IQAC Menu End--> 
+			  
+			  		  
+			  <!-- EDC Menu Start-->
+              <li class="menu-item-has-children"> <a href="https://edc.pict.edu/">EDC</a>
+                
+              </li>
+              <!--EDC Menu End--> 
+
+             <!-- Examination Menu Start-->
+              <li class="menu-item-has-children"> <a href="/Examination/">EXAMINATION</a>
+              <li class="menu-item-has-children"> <a href="/Counsellor/">Counsellor</a>
+			  
+			  	  
+			 
+              </li>
+              <!--Exam Menu End--> 
+
+              
+            </ul>
+          </nav>
+          <div class="right-bar-icon rs-offcanvas-link text-right">
+
+
+            <a id="nav-expander" class="nav-expander fixed"><i class="fa fa-bars fa-lg white"></i></a>
+            <!-- <a class="hidden-xs rs-search" data-target=".search-modal" data-toggle="modal" href="#"><i class="fa fa-search"></i></a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Menu End -->
+</header>
+<!--Header End-->
+
+</div>
+
+
+<!-- Side MENU -->
+<nav class="right_menu_togle">
+        			<div class="close-btn"><span id="nav-close" class="text-center">x</span></div>
+        			<div class="canvas-logo">
+        				<a href="/"><img src="/images/logo.png" alt="logo"></a>
+        			</div>
+        			<ul class="sidebarnav_menu list-unstyled main-menu">
+        				<!-- Home -->
+        				<li class="current-menu-item current_page_item menu-item-has-children"> <a href="/" class="home">Home</a>
+
+        				</li>
+        				<!-- End Home --> 
+
+        				<!--About Menu Start-->
+              <li class="menu-item-has-children"> <a href="#">About Us</a>
+                <ul class="sub-menu">
+                  <li> <a href="/about_us/">Overview</a>
+                  <li> <a href="/history/">History</a></li>
+                  <!-- <li><a href="/trustee-message/">Trustee's Message</a></li> -->
+                  <!-- <li><a href="/Secretary-message/">Secretary's Message</a></li>  -->
+                  <li><a href="/Director-message/">Director's Message</a></li>
+                  <li><a href="/principal-message/">Principal's Message</a></li>
+                  <li><a href="/registrar_office/">Registrar's Office</a></li>
+                  <li><a href="/contact_us/">Contact Us</a></li>
+
+                </ul>
+              </li>
+              <!--About Menu End--> 
+        				
+						<!--Admissions Menu Start-->
+              <li class=" menu-item-has-children"> <a href="#">Admissions</a>
+                <ul class="sub-menu">
+                  <li ><a href="/admission-ug/">First Year B.Tech. Admissions</a></li>
+				  <li ><a href="/admission-pg/">First Year M.Tech. Admissions</a></li>
+				  <li ><a href="/admission-dse/">Direct Second Year Admissions</a></li>
+				  <li ><a href="/fee-structure/" target="_blank">Fee Structure</a></li>
+				  <li><a href="/cutoff-FE/">Cut Off FE</a></li>
+				  <li><a href="/cutoff-SE-direct/">Cut Off SE-Direct</a></li>
+				  <li><a href="/pdf/header/V5_FAQs-24-25_July 10, 2024.pdf">FAQs</a></li>
+				  
+                </ul>
+              </li>
+              <!--Admissions Menu End-->  
+
+
+        				<!--Life@PICT Menu Start-->
+              <li class="menu-item-has-children"> <a href="/life_at_pict/">Life@PICT</a>
+                <ul class="sub-menu">
+                  
+                
+				  <li> <a href="/extracurricular/">Extra-Curricular</a></li>
+                  <li> <a href="/cocurricular/">Co-Curricular</a></li>
+                  <li><a href="/hostel/">Hostel</a></li>
+                  <li><a href="/internet/">Campus Network</a></li>
+                  <li><a href="/gallery/">Gallery</a></li>
+				  <li><a href="/library/">Library</a></li>
+				  <li><a href="/iipc-cell/" target="_blank">Institute  Industry Partnership Cell</a></li>			  
+				  <li><a href="/SWADA/" target="_blank">Student Welfare Cell</a></li>			  
+                </ul>
+              </li>
+              <!--Life@PICT Menu End-->
+
+        				<!-- Departments Menu Start -->
+              <li class="  menu-item-has-children"> <a href="#">Departments</a>
+                <ul class="sub-menu"> 
+                  
+
+                 <li > <a href="/fe-dept/">Basic Sciences and Engineering(F. Y. B. Tech)</a> </li>
+                      <li > <a href="/CE-dept/">Computer Engineering</a> </li> 
+                      <li> <a href="/ENTC-dept/">Electronics and Telecommunication </a> </li>
+                      <li> <a href="/IT-dept/">Information Technology </a> </li>
+					  <li> <a href="/ECE-dept/">Electronics and Computer </a> </li>
+					  <li> <a href="/AIDS-dept/">Artificial Intelligence and Data Science </a> </li>
+                      <li><a href="/time_table_syllabus/" target="_blank">Time Table And Syllabus</a></li>
+						<!-- <li><a href="/pdf/header/#.pdf" target="_blank">Academic Calendar</a></li> -->
+						<li><a href="/Scholarship/" target="_blank">Scholarship</a></li>
+				  
+
+                  
+
+
+
+                </ul>
+              </li>
+              <!--Departments Menu End -->
+
+        				<!--Placements Menu Start-->
+        				
+              <li class="menu-item-has-children"> <a href="/placement/">Placement (T&P)</a>
+                <ul class="sub-menu">
+                  <li><a href="/placement/index.php#overview">Overview</a></li>
+		  <li><a href="/placement/index.php#statistics">Statistics</a></li>
+                  <li><a href="/placement/index.php#trainingactivities">Training Activities</a></li>
+		  <li><a href="/placement/index.php#contactus">Contact Us</a></li>
+                  
+                </ul>
+              </li>
+              
+        				<!--Placements Menu End-->
+
+        				<!--Cell@PICT Menu Start-->
+			  <!--
+              <li class="menu-item-has-children"> <a href="#">Cell@PICT</a>
+                <ul class="sub-menu">
+                  <li><a href="#">Entrepreneurship Development Cell</a></li>
+                  <li><a href="#">Startup and Innovation Cell</a></li>
+                  
+                  <li><a href="#">Industry Institute Partneship Cell</a></li>
+                  <li><a href="#">IPR Cell</a></li>
+                  
+                  <li><a href="#">International Relations Cell</a></li>
+                  <li><a href="#">Cyber Security Cell</a></li>
+                  
+
+                </ul>
+              </li>
+			  -->
+              <!--Cell@PICT Menu End-->
+
+        		<!-- Research Menu Start -->
+              <li class="menu-item-has-children"> <a href="#">Research</a>
+                <ul class="sub-menu">
+					<li class="menu-item-has-children"> <a href="#">Research Groups</a>
+                    <ul class="sub-menu">
+						<li> <a href="/advanced-communication/index.php">Advanced Communication</a> </li>
+						<li> <a href="/Artificial Intelligence and Machine Learning Group/index.php">Atificial Intelligence & Machine Learning</a> </li>
+						<li> <a href="/Computational-Linguistics-Lab/index.php">Computational Linguistics Lab</a> </li>
+						<li> <a href="/CAILMD/index.php">CENTRE FOR ANALYTICS WITH INTELLIGENT LEARNING FOR MULTIMEDIA DATA (CAILMD)</a> </li>
+						<li> <a href="/CVBDSL/index.php">Cognitive Computer Vision, Blockchain, Distributed Systems and Security Lab.(CVBDSL)</a> </li>
+						<li> <a href="/Intelligent Computing Data Mining and Big Data/index.php">Intelligent Computing, Data Mining and Big Data</a> </li>
+						<li> <a href="/ISSRL/index.php">Information and System Security Research Lab</a> </li>
+						<li> <a href="/Machine Learning and Computational Intelligence/index.php">Machine Learning and Computational Intelligence</a> </li>
+						<li> <a href="/mek-it-tronics/index.php">Mek-IT-tronics (Mechatronics)</a> </li>
+						
+												
+						<!--<li> <a href="/Multidisciplinary-Research-Lab/index.php">Multidisciplinary Research Lab</a> </li>-->
+						
+                      <!-- <li> <a href="#">Software Application Development</a> </li>                       
+                      <li> <a href="#">AI & DL, Data Science</a> </li> 
+                      <li> <a href="#">Blockchain and Distributed Systems Security</a> </li>
+                      
+                      <li> <a href="#">Embedded Systems & IoT Domain</a> </li>
+                      <li> <a href="#">Machine Learning and Computational Intelligence</a> </li>
+                      <li> <a href="#">Big Data & Text Analytics Research</a> </li>
+                      <li><a href="#">Wireless Networks</a></li>
+					  <li><a href="#">Mek-IT-tronics (Mechatronics)</a></li>
+					  
+					  <li><a href="#">3D Printer Laboratory</a></li> 
+					-->
+                    </ul>
+                  </li>
+                  <!--<li><a href="#">Publications</a></li>
+				  <li><a href="#">Patents</a></li>
+				  <li><a href="#">Projects & Product Development</a></li>
+				  <li><a href="#">Consultancy</a></li>
+				  <li><a href="#">Industry Sponsored Labs</a></li>
+				<li><a href="#">Research Centre (Ph.D.)</a></li>
+				-->
+
+                </ul>
+              </li>
+              <!--Research Menu End -->
+
+
+       				
+        				<!--Alumni Menu Start-->
+              <li class="menu-item-has-children"> <a href="/alumni/">Alumni</a>
+                <ul class="sub-menu">
+                  <!-- <li><a href="#">Alumni Engagement</a></li> -->
+                  <li><a href="https://alumni.pict.edu/">Alumni Portal</a></li>
+                  
+
+                </ul>
+              </li>
+              <!--Alumni Menu End-->
+
+
+					<!--IQAC Menu Start-->
+              <li class="menu-item-has-children"> <a href="#">IQAC</a>
+                <ul class="sub-menu">
+                  <li><a href="/about-iqac/">About IQAC</a></li>
+                  <li><a href="/naac/">NAAC Data</a></li>
+                  <li><a href="/NBA/">NBA Data</a></li>               
+                  <li><a href="/nirf/">NIRF Data</a></li>
+				  <li><a href="/Best-Practices/">Best Practices</a></li>
+				  <li><a href="/institution-distinctiveness/">Institution Distinctiveness</a></li>
+                </ul>
+              </li>
+              				<!--IQAC Menu End--> 
+							
+							<!-- EDC Menu Start-->
+              <li class="menu-item-has-children"> <a href="https://edc.pict.edu/">EDC</a>
+                
+              </li>
+              <!--EDC Menu End--> 
+
+<!-- Examination Menu Start-->
+              <li class="menu-item-has-children"> <a href="/Examination/">EXAMINATION</a>
+			  
+			  	  
+			 
+              </li>
+              <!--Exam Menu End--> 
+
+        				
+        			</ul>
+        			<!-- <div class="search-wrap"> 
+        				<label class="screen-reader-text">Search for:</label> 
+        				<input  id="searchbar" type="search" placeholder="Search..." name="s"  class="search-input" value=""> 
+        				<button type="submit" value="Search"><i class="fa fa-search"></i></button>
+        			</div> -->
+        		</nav>
+				
+				
+				
+				<!-- START OF CHATBOT SCRIPT -->
+				
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="PICT-ChatBot"
+  agent-id="d9c434de-329a-4742-a76b-9fd65e992e5c"
+  language-code="en"
+></df-messenger>
+
+  <!-- END OF CHATBOT SCRIPT -->
+
+
+
+<!-- ..........................................Main site starts from here.......................................................................................................................................... -->
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+
+	
+
+
+	<!-- meta tag -->
+	<meta charset="utf-8">
+	<title>PICT-Top Engineering College</title>
+	<meta name="description" content="">
+	<!-- responsive tag -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- favicon -->
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	
+	<link
+	rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous"
+	/>
+
+	<link rel="shortcut icon" type="image/x-icon" href="images/fav.png">
+	<!-- bootstrap v4 css -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	
+	<!-- font-awesome css -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<!-- animate css -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	
+	<!-- owl.carousel css -->
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+	<!-- slick css -->
+	<link rel="stylesheet" type="text/css" href="css/slick.css">
+	<!-- magnific popup css -->
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+	<!-- Offcanvas CSS -->
+	<link rel="stylesheet" type="text/css" href="css/off-canvas.css">
+	<!-- flaticon css  -->
+	<link rel="stylesheet" type="text/css" href="fonts/flaticon.css">
+	<!-- flaticon2 css  -->
+	<link rel="stylesheet" type="text/css" href="fonts/fonts2/flaticon.css">
+	<!-- rsmenu CSS -->
+	<link rel="stylesheet" type="text/css" href="css/rsmenu-main.css">
+	<!-- rsmenu transitions CSS -->
+	<link rel="stylesheet" type="text/css" href="css/rsmenu-transitions.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--Color Blue-->
+	<link rel="stylesheet" type="text/css" href="css/color/blue.css">
+	<!-- responsive css -->
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+
+
+
+	
+	<!--Calender-->
+	<link rel="stylesheet" href="css/clndr.css" type="text/css" />
+	<!--End Calender-->
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+	<script>
+		$(document).ready(function () {
+			setTimeout(function () {
+				$("#mymodal").modal("show");
+			}),
+			50000;
+		});
+	</script>
+
+	<style>
+
+
+
+
+
+		.footer-list{
+			display: flex;
+			width: 100%;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.footer-list1{
+			margin-top: 10px;
+			display: flex;
+			width: 60%;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.footer-ele{
+			display: inline-block;
+			font-size: 1.25em;
+			border: 1px solid;
+			border-radius: 10px;
+			padding: 5px;
+		}
+		.center{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+		}
+
+		.footer-top1{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.footer-top2{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.footer-top3{
+			width:70%;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.school1{
+			width: 75%;
+
+		}
+		
+		.modal-content {
+            /* 80% of window height */
+            position: absolute;
+            margin-top: 0px;
+            height: 450px;
+            height: auto;
+            width: 35%;
+            z-index: 2;
+        }
+        .modal-body {
+            max-height: 400px;
+            height: auto;
+            overflow-y: auto;
+        }
+
+		.modal-backdrop {
+			display:none;
+		}
+		.fade {
+			backdrop-filter: blur(2px);
+			transition: opacity 0.15s linear;
+		}
+		.modal-body{
+			margin-left: 20px;
+		}
+		.modal-body li{
+			font-weight: bold;
+			padding-bottom: 10px;
+
+		}
+		.modal-body ul{
+			list-style: square;
+		}
+		.modal-content{
+			background: rgb(255, 255, 255);
+			resize: both !important;
+			overflow: auto !important;
+		}
+		.pop-container{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			resize: both !important;
+			overflow: auto !important;
+		}
+		.overflow-notice{
+
+			height: 210px;
+			overflow-y: auto;
+			max-height: 210px;
+		}
+		.overflow-testimonial{
+			height: 110px;
+			overflow-y: auto;
+			max-height: 104px;
+		}
+		.display-table-cell1{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+		}
+		.text-top{
+			width:90%;
+			padding-top: 10px !important;
+		}
+		.text-top1{
+			width:90%;
+			padding-top: 10px !important;
+		}
+		.slider-title{
+			font-size: 2.5em !important;
+		}
+		.slider-desc{
+			font-size: 1.0em !important;
+		}
+		/*.slider-overlay-2{
+			background: rgba(255, 0, 0, 0.5) !important;
+		}
+		#home-slider{
+			background: rgba(0, 0, 255, 0.5) !important;
+		}*/
+		#home-slider .item img{
+			background-image: none !important;
+		}
+		#home-slider .item{
+			background-image: none !important;
+			background: none !important;
+		}
+		.slide-content{
+			background-image: none !important;
+		}
+		.display-table{
+			background-image: none !important;
+		}
+		.display-table-cell1{
+			background-image: none !important;
+			background: none !important;
+		}
+		.display-table-cell1 .container{
+			background-image: none !important;
+			background: none !important;
+		}
+
+		@media only screen and (max-width: 1199px) {
+			iframe{
+				width: 100%;
+			}
+			.slider-title{
+				font-size: 2.4em !important;
+			}
+			.slider-desc{
+				font-size: 0.95em !important;
+			}
+		}
+		@media only screen and (max-width: 991px) {
+			iframe{
+				width: 100%;
+			}
+			.slider-title{
+				font-size: 2.3em !important;
+			}
+			.slider-desc{
+				font-size: 0.9em !important;
+			}
+			.modal-content {
+				width: 45%;
+			}
+		}
+		@media only screen and (max-width: 767px) {
+			iframe{
+				width: 100%;
+			}
+			.slider-title{
+				font-size: 2.2em !important;
+			}
+			.slider-desc{
+				font-size: 0.85em !important;
+			}
+			.modal-content {
+				width: 55%;
+			}
+		}
+		@media only screen and (max-width: 575px) {
+			iframe{
+				width: 100%;
+			}
+			.slider-title{
+				font-size: 2.1em !important;
+			}
+			.slider-desc{
+				font-size: 0.8em !important;
+			}
+			.modal-content {
+				width: 70%;
+			}
+		}
+		@media only screen and (max-width: 480px) {
+			iframe{
+				width: 100%;
+			}
+			.slider-title{
+				font-size: 2em !important;
+			}
+			.slider-desc{
+				font-size: 0.75em !important;
+			}
+			.modal-content {
+				width: 80%;
+			}
+		}
+		@media only screen and (max-width: 420px) {
+			iframe{
+				width: 100%;
+			}
+			.slider-title{
+				font-size: 1.9em !important;
+			}
+			.slider-desc{
+				font-size: 0.7em !important;
+			}
+			.modal-content {
+				width: 90%;
+			}
+		}
+		@media only screen and (max-width: 1199px){
+			iframe{
+				width: 100%;
+			}
+			.text-top{
+				padding-top: 65px !important;
+			}
+			.text-top1{
+				padding-top: 65px !important;
+			}
+		}
+		@media only screen and (max-width: 992px){
+			iframe{
+				width: 100%;
+			}
+			.text-top{
+				padding-top: 10px !important;
+			}
+			.text-top1{
+				padding-top: 10px !important;
+			}
+		}
+		@media only screen and (max-width: 650px){
+			iframe{
+				width: 100%;
+			}
+			.overflow-notice{
+				height: 250px;
+				overflow-y: auto;
+				max-height: 200px;
+			}
+			.overflow-testimonial{
+				height: 210px;
+				overflow-y: auto;
+				max-height: 150px;
+			}
+		}
+
+		/* Theme change */
+		.rs-toolbar, .menu-area, .right_menu_togle, .rs-menu-toggle, .gsc-search-button, .rs-header .menu-area .rs-menu li a{
+			text-transform: uppercase !important;
+			background-color: #1f51ff !important;
+			font-weight: 800 !important;
+			color: #ffffff !important;
+		}
+		.rs-header .menu-area .rs-menu li a{
+			border-color: #1f51ff !important;
+			font-weight: 600 !important;
+			color: #ffffff !important;
+		}
+		.rs-header .menu-area .rs-menu li a:hover,
+		.rs-header .menu-area .rs-menu li a:focus,
+		.rs-header .menu-area .rs-menu li a:active{
+			background-color: #0039ff !important;
+			font-weight: 800 !important;
+		}
+		.rs-header .menu-area .rs-menu li a:visited{
+			color: #f5a425 !important;
+		}
+		.menu-area{
+			width: 100% !important;
+		}
+		.rs-toolbar-right a{
+			color: rgba(255, 255, 255, 0.6) !important;
+			font-weight: 800 !important;
+			text-transform: uppercase;
+		}
+		.rs-footer a{
+			color: rgba(255, 255, 255, 0.6) !important;
+			font-weight: 800 !important;
+		}
+		.rs-toolbar-right a:hover,
+		.rs-toolbar-right a:focus,
+		.rs-toolbar-right a:active,
+		.rs-footer a:hover,
+		.rs-footer a:focus,
+		.rs-footer a:active{
+			color: #ffffff !important;
+		}
+		.nav-menu > .menu-item-has-children > span.rs-menu-parent{
+			background-color: #1f51ff !important;
+		}
+		.rs-menu-toggle{
+			border: none !important;
+		}
+		.rs-menu .sub-menu li{
+			border: none !important;
+		}
+		.rs-menu-parent{
+			border: none !important;
+		}
+		.table-container{
+			padding-left: 0px !important;
+			padding-right: 0px !important;
+		}
+		.table-hover{
+			padding-left: none !important;
+			padding-right: none !important;
+		}
+		.thead-dark th{
+			background-color: #1f51ff !important;
+			border-color: #ffffff !important;
+		}
+		.sidebar-area .course-features-info ul li i {
+			color: #1f51ff !important;
+		}
+		.sidebar-area .course-features-info ul li .label {
+			color: #1f51ff !important;
+		}
+		.sec-spacer {
+			padding: 20px 0 !important;
+		}
+		.team-item{
+			width: 80% !important;
+			height: 80% !important;
+		}
+		.slider-title .slider-link{
+			color: #fff !important;
+		}
+		.slider-title .slider-link:hover{
+			color: #fff !important;
+		}
+		a:visited {
+			color: #f5a425 !important;
+		}
+		.blue{
+			color:#1f51ff;
+			background-color: #fff;
+			text-transform: uppercase !important;
+			padding-top: 20px;
+		}
+		.modal-header{
+			background-color: #1f51ff !important;
+		}
+		.modal-title, .close-pop{
+			color: #fff !important;
+		}
+	
+/* === Custom popup link bullets and hover animation === */
+.popup-bullet {
+  display: inline-flex;
+  align-items: center;
+  color: #1f51ff;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  text-decoration: none;
+}
+
+.popup-bullet i {
+  margin-right: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.popup-bullet:hover {
+  color: #0039ff;
+  text-shadow: 0 0 6px rgba(31, 81, 255, 0.4);
+  transform: translateX(5px);
+}
+
+.popup-bullet:hover i {
+  transform: translateX(3px);
+}
+
+</style>
+</head>
+<body class="home1">
+
+	<!--Full width header Start-->
+	
+	<!--Full width header End-->
+
+<!-- ✅ BREAKING NEWS BAR (TOP) 
+<div style="background-color:#004080; color:white; padding:8px 20px; font-weight:bold; font-size:16px; text-align:center;">
+  📢 Breaking News: Admission Open for 2024-25! Check latest updates below ↓
+</div>
+
+ ✅ SLIDE-IN NOTIFICATION (BOTTOM RIGHT) -->
+<style>
+  #slideNotif {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #0059b3;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: none;
+    max-width: 300px;
+    font-size: 14px;
+  }
+  #slideNotif button {
+    background: none;
+    border: none;
+    color: #fff;
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  window.onload = function() {
+    setTimeout(function() {
+      document.getElementById('slideNotif').style.display = 'block';
+    }, 4000);
+  };
+</script>
+
+<!-- ✅ ENHANCED NEWS SECTION STYLE -->
+<style>
+  .imp-news-carousel .news-item:hover {
+    transform: scale(1.03);
+    transition: all 0.3s ease-in-out;
+  }
+  .imp-news-carousel .news-item {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+</style>
+  
+<style>
+.new-gradient-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff4757, #ff6b81, #ff4757);
+    background-size: 200% auto;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 5px;
+    animation: gradient 2s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+.slide-transparent-text {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    color: #ffffff;
+    z-index: 10;
+}
+
+.slide-transparent-text {
+    position: absolute;
+    top: 5%; /* 👈 text */
+    left: 5%;
+    color: #ffffff;
+    z-index: 10;
+    padding: 20px;
+    border-radius: 12px;
+
+    background-color: rgba(0, 0, 0, 0.46); /* 👈 background */
+    backdrop-filter: blur(2px); /* 👈 blur, modern look (optional) */
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInText 2s ease forwards;
+}
+
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+}
+
+.slider-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 4px rgba(221, 220, 220, 0.7);
+}
+
+.slider-desc {
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.popup-bullet {
+    display: inline-flex;
+    align-items: center;
+    color:rgb(19, 5, 141);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.popup-bullet:hover {
+    color: #ffd000;
+    transform: translateX(5px);
+}
+
+</style>
+
+
+
+<!-- logo code -->
+
+  <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Animation Styles */
+        @keyframes fullRotation {
+            0% {
+                transform: scale(0) rotateY(0deg);
+                opacity: 0;
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+            }
+            30% {
+                transform: scale(0.7) rotateY(180deg);
+                opacity: 0.8;
+            }
+            60% {
+                transform: scale(0.9) rotateY(360deg);
+                box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                transform: scale(1) rotateY(720deg);
+                opacity: 1;
+                box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        @keyframes continuousGlow {
+            0%, 100% {
+                box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        @keyframes pulseRotation {
+            0%, 100% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(10deg);
+            }
+        }
+
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            perspective: 1000px;
+        }
+
+        .circle-loader {
+            width: 800px;
+            height: 8400px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            animation: 
+                fullRotation 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+                pulseRotation 3s ease-in-out infinite 2.5s;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            animation: continuousGlow 2s infinite ease-in-out;
+            backface-visibility: visible;
+        }
+
+        .radial-waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .wave {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            animation: waveExpand 2s linear infinite;
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        @keyframes waveExpand {
+            0% {
+                transform: scale(0);
+                opacity: 0.8;
+                border-width: 1px;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+                border-width: 0.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+	<!-- logo code end -->
+
+
+
+
+
+
+
+
+
+<style>
+    /* Overlay Styles - Scoped specifically to the overlay */
+    #pict-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.92);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+    }
+
+    #pict-overlay .overlay-logo {
+        width: 100px;
+        margin-bottom: 20px;
+        animation: logoFloat 3s ease-in-out infinite, fadeIn 1s ease-in-out;
+        filter:
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.7))
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))
+            drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        transition: all 0.5s ease;
+    }
+
+    #pict-overlay .overlay-logo:hover {
+        transform: scale(1.05);
+        filter:
+            drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))
+            drop-shadow(0 0 15px rgba(255, 255, 255, 0.7))
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    }
+
+    #pict-overlay .overlay-content {
+        width: 80%;
+        max-width: 1000px;
+        height: 80vh;
+        background: linear-gradient(145deg, #0F2D52 0%, #1A3E6F 100%);
+        border-radius: 12px;
+        padding: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        animation: slideUp 0.8s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #pict-overlay .overlay-header {
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.8em;
+        text-transform: uppercase;
+        background: rgba(15, 45, 82, 0.9);
+        border-bottom: 2px solid #00B4B4;
+        flex-shrink: 0; /* Ensures header doesn't shrink */
+    }
+
+    /* MODIFIED: New container for scrolling content with overflow-y: auto */
+    #pict-overlay .scroll-container {
+        flex-grow: 1; /* Takes up all available vertical space */
+        overflow-y: auto; /* Re-enabled manual scrollbar */
+        overflow-x: hidden;
+        position: relative; /* For animation to work correctly */
+    }
+
+    /* MODIFIED: Pause animation on hover */
+    #pict-overlay .scroll-container:hover .overlay-sections {
+        animation-play-state: paused;
+    }
+
+    #pict-overlay .overlay-sections {
+        padding: 20px;
+        /* Removed position: absolute to allow normal flow */
+        width: 100%;
+        /* REMOVED: Continuous scroll animation */
+        /* animation: slowScroll 30s linear infinite; */
+    }
+
+    #pict-overlay .overlay-section {
+        background-color: white;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    #pict-overlay .overlay-section:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #pict-overlay .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    #pict-overlay .section-title {
+        color: #0F2D52;
+        font-size: 1.3em;
+        font-weight: bold;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #00B4B4;
+    }
+
+    #pict-overlay .section-btn {
+        background: linear-gradient(to right, #0F2D52, #1A3E6F);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    #pict-overlay .section-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(46, 2, 2, 0.77), transparent);
+        transition: 0.5s;
+    }
+
+    #pict-overlay .section-btn:hover {
+        background: linear-gradient(to right, #0c274dff, #0F2D52);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #pict-overlay .section-btn:hover::before {
+        left: 100%;
+    }
+
+    #pict-overlay .section-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #pict-overlay .section-links li {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background-color: #F5F7FA;
+        border-radius: 5px;
+        transition: all 0.2s ease;
+        border-left: 3px solid #00B4B4;
+    }
+
+    #pict-overlay .section-links li:hover {
+        background-color: #95acbdff;
+        transform: translateX(5px);
+    }
+
+    #pict-overlay .section-links a {
+        color: #0F2D52;
+        text-decoration: none;
+        font-weight: 500;
+        display: block;
+        transition: color 0.3s ease;
+    }
+
+    #pict-overlay .section-links a:hover {
+        color: #042727ff;
+    }
+
+    #pict-overlay .overlay-footer {
+        text-align: center;
+        padding: 15px;
+        background: rgba(15, 45, 82, 0.9);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0; /* Ensures footer doesn't shrink */
+    }
+
+    #pict-overlay .home-btn {
+        background: linear-gradient(to right, #00B4B4, #008080);
+        color: white;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 30px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    #pict-overlay .home-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+
+    #pict-overlay .home-btn:hover {
+        background: linear-gradient(to right, #008080, #006666);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #pict-overlay .home-btn:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes logoFloat {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes ripple {
+        0% {
+            transform: scale(0, 0);
+            opacity: 1;
+        }
+        20% {
+            transform: scale(25, 25);
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(40, 40);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        #pict-overlay .overlay-content {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #pict-overlay .overlay-content {
+            width: 95%;
+            height: 90vh;
+        }
+
+        #pict-overlay .overlay-logo {
+            width: 90px;
+            margin-bottom: 15px;
+        }
+
+        #pict-overlay .overlay-header {
+            font-size: 1.5em;
+            padding: 15px;
+        }
+
+        #pict-overlay .overlay-section {
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        #pict-overlay .section-title {
+            font-size: 1.2em;
+        }
+
+        #pict-overlay .section-btn {
+            padding: 6px 12px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+
+        #pict-overlay .section-links li {
+            padding: 8px 10px;
+            margin-bottom: 8px;
+        }
+
+        #pict-overlay .home-btn {
+            padding: 10px 25px;
+            font-size: 1em;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #pict-overlay .overlay-content {
+            height: 95vh;
+        }
+
+        #pict-overlay .overlay-header {
+            font-size: 1.3em;
+            padding: 12px;
+        }
+
+        #pict-overlay .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #pict-overlay .section-title {
+            margin-bottom: 8px;
+        }
+
+        #pict-overlay .section-btn {
+            margin-top: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #pict-overlay .section-links li {
+            font-size: 0.9em;
+        }
+    }
+
+    /* Add this to modify visited link colors */
+    #pict-overlay .section-links a:visited {
+        color: #0A246A !important;
+    }
+
+    #pict-overlay .section-links a {
+        color: #0F2D52;
+        text-decoration: none;
+        font-weight: 500;
+        display: block;
+        transition: color 0.3s ease;
+    }
+</style>
+
+<script>
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // Function to get a cookie
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Close overlay function
+    function closeOverlay() {
+        document.getElementById('pict-overlay').style.display = 'none';
+        // Set cookie for 1 day so overlay won't show again
+        setCookie('overlayShown', 'true', 1);
+    }
+
+    // Show overlay after page loads only if cookie not set
+    window.addEventListener('load', function() {
+        if (!getCookie('overlayShown')) {
+            setTimeout(function() {
+                document.getElementById('pict-overlay').style.display = 'flex';
+            }, 1000); // 1 second delay after page load
+        }
+    });
+
+    // Optional: Close overlay when clicking outside content
+    document.getElementById('pict-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeOverlay();
+        }
+    });
+</script>
+
+
+
+<!-- POP UP Start-->
+
+	<div class="pop-container">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <h5 class="modal-title w-100">NOTICES / NEWS / ANNOUNCEMENT</h5>
+            <button type="button" class="close close-pop" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+			<div class="modal-body">
+				<div style="text-align: justify">
+					<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1040.0">
+						<ul>
+						
+    <!--<li><a href="pdf/popup/Faculty Recruitment Advertisement -2025-26-Website.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Faculty Recruitment Advertisement -2025-26</a> <img src="pdf/popup/new-gif.gif" width=30 height=30></li>	-->
+
+<li>
+  <a href="https://recruitment.pict.edu/" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i>
+    RECRUITMENT - 2026 : Faculty Recruitment Advertisement & Application Form
+    <img src="pdf/popup/new-gif.gif" width="25" height="25" style="margin-left: 5px; vertical-align: middle;">
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="pdf/popup/Scholarship Notice 12 Sept 2026.pdf" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i>
+    Notice for Students have not yet submitted his scholarship application on the MahaDBT portal
+    <img src="pdf/popup/new-gif.gif" width="25" height="25" style="margin-left: 5px; vertical-align: middle;">
+  </a>
+</li>
+<hr color="#ebebeb" size="1" width="50%" >
+<li>
+  <a href="/Examination/pdf/SPPU Exam Form Notice.pdf" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i>
+    Notice of SPPU examination form filling of FE/SE/TE and BE(2019) for NOV/DEC 2026 examination
+    <img src="pdf/popup/new-gif.gif" width="25" height="25" style="margin-left: 5px; vertical-align: middle;">
+  </a>
+</li>
+
+<li>
+  <a href="https://pict.edu/Examination" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i>
+    F.Y.B.Tech./M.Tech. Insem Examination (ISE) Time Table OCT-2026
+    <img src="pdf/popup/new-gif.gif" width="25" height="25" style="margin-left: 5px; vertical-align: middle;">
+  </a>
+</li>
+
+
+<hr color="#ebebeb" size="1" width="50%" >
+
+<li>
+  <a href="pdf/popup/Certificate Course Flyer.png" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i>
+   50 Hours Online Certificate Course on "NextGen AI Engineering: Python, ML, DL, CV, NLP, GenAI & Agentic AI"
+  </a>
+</li>
+
+
+<li>
+  <a href="pdf/popup/Research-Only Faculty positions.pdf" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i> 
+   Applications Invited for Research-Only Faculty Positions
+  </a>
+</li>  
+
+<li>
+  <a href="pdf/popup/Application for PICT Alumni Activities & Portal Management.pdf" class="popup-bullet" target="_blank">
+    <i class="fa fa-angle-double-right"></i> 
+    Applications are invited for managing PICT Alumni Activities and the Alumni Portal
+  </a>
+</li>  
+
+<hr color="#ebebeb" size="1" width="50%" >
+
+<li><a href="pdf/popup/Advertisement for Professor of Practice & Adjunct Professor 22-9-2025.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Advertisement for the post of Professor of Practice & Adjunct Professor </a> </li>
+
+<li><a href="pdf/popup/V5_Advertisement for the post of Professor & Associate Professor - Website.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Advertisement for Professor and Associate Professor</a> </li>
+
+						</ul>
+					</body>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Final Year Reopening Notice -->
+<div id="reopenNoticeModal" style="display:none; position:fixed; z-index:99999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6);">
+    <div style="background:#fff; width:80%; max-width:700px; margin:5% auto; padding:25px; border-radius:8px; position:relative;">
+        
+        <span onclick="closeReopenNotice();"
+              style="position:absolute; right:15px; top:10px; font-size:28px; cursor:pointer;">&times;</span>
+
+        <h3 style="color:#003366; margin-bottom:20px;">
+            Reopening of College for Final Year Students (A.Y. 2026–27)
+        </h3>
+
+        <p>
+            All Final Year Students are hereby informed that the college will reopen
+            for the Academic Year 2026–27 on <strong>Monday, 6 July 2026</strong>.
+        </p>
+
+        <p>
+            Students are required to attend their classes, laboratory sessions,
+            project work, and other academic activities as per the timetable
+            notified by their respective departments.
+        </p>
+
+        <p>
+            Attendance will be counted from the first day of commencement of classes.
+            Students are therefore instructed to ensure their presence from the
+            reopening date.
+        </p>
+
+        <br>
+
+        <p style="text-align:right;">
+            <strong>Principal</strong><br>
+            SCTR's Pune Institute of Computer Technology, Pune
+        </p>
+    </div>
+</div>
+
+<script>
+function showReopenNotice() {
+    document.getElementById('reopenNoticeModal').style.display = 'block';
+}
+
+function closeReopenNotice() {
+    document.getElementById('reopenNoticeModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById('reopenNoticeModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+
+
+	
+	<!-- POP UP End -->
+
+
+
+	<!-- Slider Area Start -->
+	<div id="rs-slider">	
+		<div id="home-slider">
+		
+			<!-- Item 1 -->
+			<div class="item">
+				<img src="images/slider/home1/NAAC A+_R6 new.jpg" alt="Slide7" />
+				<div class="slide-content">
+					<div class="display-table">
+						<div class="display-table-cell display-table-cell1">
+							<div class="container text-center text-top">
+								<h3 class="slider-title"  data-animation-out="animate-out"></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		   
+<!-- navin test -->
+ <div class="item active">
+    <img src="images/slider/home1/College Photo 23 Feb 2023.jpg" alt="Slide1" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i> WELCOME TO PICT.... 
+            </a>
+        </h3>
+        <p class="slider-desc">
+            World Class Institute renowned for its unique student-centered approach,<br>
+            and research-intensive learning environment.
+        </p>
+    </div>
+</div>
+
+<!-- RBI Hackathon -->
+ <div class="item active">
+    <img src="images/slider/home1/RBI HaRBInger New.jpeg" alt="Slide1" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i> Achievement
+            </a>
+        </h3>
+        <p class="slider-desc">
+            Winner (45 Lakhs) in The Reserve Bank of India <br>HaRBInger 2026 Hackathon
+        </p>
+    </div>
+</div>
+
+<!-- Robitics -->
+ <div class="item active">
+    <img src="images/slider/home1/slider-robotics-new.jpg" alt="Slide1" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i> Achievement
+            </a>
+        </h3>
+        <p class="slider-desc">
+            First Prize in the ISRO Robotics Challenge
+        </p>
+    </div>
+</div>
+
+
+<div class="item active">
+    <img src="images/slider/home1/2.jpg" alt="Slide2" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i> WHAT WE NURTURE?  
+            </a>
+        </h3>
+        <p class="slider-desc">
+            At PICT talent and ambitions come together in a culture that <br> nourishes thinking and encourages every <br>student to reach his or her full potential.
+        </p>
+    </div>
+</div>
+
+			<div class="item active">
+    <img src="images/slider/home1/4_2-4.jpg" alt="Slide4" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i> Accreditation  
+            </a>
+        </h3>
+        
+    </div>
+</div>
+
+			<div class="item active">
+    <img src="images/slider/home1/5_2.jpg" alt="Slide5" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i> Accreditation  
+            </a>
+        </h3>
+        
+    </div>
+</div>
+
+		<div class="item active">
+    <img src="images/slider/home1/7_4.png" alt="Slide6" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i>Recognition 
+            </a>
+        </h3>
+        
+    </div>
+</div>
+
+		<div class="item active">
+    <img src="images/slider/home1/8_2.jpg" alt="Slide7" />
+    <div class="slide-transparent-text fade-in">
+        <h3 class="slider-title">
+            <a href="./about_us/" class="popup-bullet" target="_blank">
+                <i class="fa fa-angle-double-right"></i>Achievements
+            </a>
+        </h3>
+    </div>
+</div>
+			
+		</div>         
+	</div>
+	<!-- Slider Area End -->
+
+<br/><br/>
+
+	<!-- About Us Start -->
+	<div id="rs-about" class="rs-about sec-spacer">
+		<div class="container">
+			<div class="sec-title mb-50 text-center">
+				<h2>PICT AT A GLANCE</h2>      
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-12 pr-2">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/krzXKGKM0hg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div class="overly-border"></div>
+				</div>
+				<div>&nbsp;&nbsp;&nbsp;</div>
+				<div>
+					<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&src=cGljdC5lZHVfOHNuaW1ncXFlNWkxcGVsZzh0Y2VsbjkxMXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%234285F4" style="border:solid 1px #777" width="550" height="317" frameborder="0" scrolling="no"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Us End -->
+
+
+	<!-- Team Start -->
+	<div id="rs-team" class="rs-team sec-color sec-spacer">
+		<div class="container">
+			<div class="sec-title mb-50 text-center">
+				<h2>OUR MANAGEMENT</h2>      
+			</div>
+			<center>	
+				<div class="rs-carousel owl-carousel our-management-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="1200" data-dots="true" data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="true" data-md-device="3" data-md-device-nav="true" data-md-device-dots="true">
+					<div class="team-item">
+						<div class="team-img">
+							<img src="images/team/img/KothavaleRS_Trusty.webp" alt="team Image" />
+							<div class="normal-text">
+								<h3 class="team-name">R S Kothavale</h3>
+								<span class="subtitle">Managing Trustee, SCTR</span>
+							</div>
+						</div>
+						<div class="team-content">
+							<div class="overly-border"></div>
+							<div class="display-table">
+								<div class="display-table-cell">
+									<h3 class="team-name"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> R S Kothavale</a></h3>
+									<span class="team-title">Managing Trustee, SCTR</span>
+									<p class="team-desc">Entrusted with planning, implementation and evaluation.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="team-img">
+							<img src="images/team/img/Sirsikar_Secretary.webp" alt="team Image" />
+							<div class="normal-text">
+								<h3 class="team-name">Swastik Sirsikar</h3>
+								<span class="subtitle">Secretary, SCTR</span>
+							</div>
+						</div>
+						<div class="team-content">
+							<div class="overly-border"></div>
+							<div class="display-table">
+								<div class="display-table-cell">
+									<h3 class="team-name"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Swastik Sirsikar</a></h3>
+									<span class="team-title">Secretary, SCTR</span>
+									<p class="team-desc">Entrusted with planning, implementation and evaluation.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> </center>
+	<!-- Team End -->
+
+
+	<!-- Achievements Start -->
+	<div id="rs-courses" class="rs-courses sec-color sec-spacer">
+		<div class="container">
+			<div class="sec-title mb-50 text-center">
+				<h2>HIGHLIGHTS & ACHIEVEMENTS</h2>      
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="rs-carousel owl-carousel pict-highlights-carousel" data-loop="true" data-items="4" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="1200" data-dots="true" data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="true" data-md-device="3" data-md-device-nav="true" data-md-device-dots="true">
+											
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="pdf/homepage/dell mou new.jpg" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> MoU with Dell Technologies</a></h4>
+								<div class="course-desc">
+									<p>
+										MoU with Dell Technologies to empower the next generation of tech leaders.
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="pdf/homepage/mou with align technology new.jpg" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> MoU with Align Technology LLC</a></h4>
+								<div class="course-desc">
+									<p>
+										This collaboration aims to foster internship for M.Tech, innovation, research and education in the field of Engg. & Technology.
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="pdf/homepage/Google Agentic AI New.jpg" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Google Agentic AI day Hackathon 2026</a></h4>
+								<div class="course-desc">
+									<p>
+										Google Agentic AI day Hackathon Runner up
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="pdf/homepage/smart india hackathon 2024-25.jpeg" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Smart India Hackathon 2024</a></h4>
+								<div class="course-desc">
+									<p>
+										PICT team (prize of 1 lakh) is the winner of One of the Government of India’s Toughest Competitions “Smart India Hackathon 2024” @ SVCET, Chittoor, Andhra Pradesh in Dec 2024.
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="images/courses/mouwithhuf.jpg" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> MoU with German based MNC HuF Pvt Ltd for Industry 4.0 Solution</a></h4>
+								<div class="course-desc">
+									<p>
+										PICT got the consultancy from HuF India for complete digitization of their Chakan based manufacturing plant.
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="images/courses/icei-2026_resized.jpg" alt="" />
+								<a class="image-link" href="https://www.youtube.com/watch?v=nDJGuefz7vY" title="University Tour 2018">
+									<i class="fa fa-link"></i>
+								</a>
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="https://www.youtube.com/watch?v=nDJGuefz7vY" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> ICEI 2026 (Video Link)</a></h4>
+								<div class="course-desc">
+									<p>
+										'पीआयसीटी'महाविद्यालयात आंतरराष्ट्रीय परिषद संपन्न !
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="images/courses/Solapur-Police-MoU.jpg" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Solapur Rural Police Staff Transfer Portal</a></h4>
+								<div class="course-desc">
+									<p>
+										Consultancy work under MoU between PICT and Solapur Rural Police
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="images/courses/acm.webp" alt="" />
+								<a class="image-link" href="./news/congratulations-to-pict-acm/" title="University Tour 2018">
+									<i class="fa fa-link"></i>
+								</a>
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> ACM Student Chapter</a></h4>
+								<div class="course-desc">
+									<p>
+										Congratulations to Pict ACM Student Chapter For being the fourth-time
+										winnner of the ACM India Best Chapter Award
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="cource-item">
+							<div class="cource-img">
+								<img src="images/courses/kaushal.webp" alt="" />
+							</div>
+							<div class="course-body">
+								<h4 class="course-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> India Book Of Records</a></h4>
+								<div class="course-desc">
+									<p>
+										Kaushal Kamesh Mahajan Has made it into "India Book Of Records".He brought laurels 
+										to the city by singing a self-written song fastest and made a record.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Achievements End -->
+
+	<!-- Events Start -->
+	<div id="rs-events" class="rs-events sec-spacer">
+		<div class="container">
+			<div class="sec-title mb-50 text-center">
+				<h2>OUR  EVENTS</h2>      
+				<p>Celebrating culture and technology with exceptional spirit.</p>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="rs-carousel owl-carousel upcoming-event-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="True" data-autoplay-timeout="5000" data-smart-speed="1200" data-dots="true" data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="true" data-md-device="3" data-md-device-nav="true" data-md-device-dots="true">
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/alumni.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Distinguished Alumni Visit</a></h4>
+							</div>
+						</div>
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/INClogo.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Impetus &#038; Concepts</a></h4>
+								<div class="event-btn">
+									<a href="http://pictinc.org/" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Join Event <i class="fa fa-angle-double-right"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/techfiesta1.jpeg" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Techfiesta</a></h4>
+								<div class="event-btn">
+									<a href="https://techfiesta.pict.edu/" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Join Event <i class="fa fa-angle-double-right"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/MUN.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>PICT MUN</a></h4>
+								<div class="event-btn">
+								</div>
+							</div>
+						</div>
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/credenz.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Credenz</a></h4>
+							</div>
+						</div>
+						
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/elevate.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Elevate</a></h4>
+							</div>
+						</div>
+
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/addiction.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Addiction</a></h4>
+								<div class="event-btn">
+								</div>
+							</div>
+						</div>
+						<div class="event-item">
+							<div class="event-img">
+								<img src="images/events/img/Pulzion1.webp" alt="" />
+							</div>
+							<div class="events-details sec-color">
+								<h4 class="event-title"><a>Pulzion</a></h4>
+								<div class="event-btn">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Events End -->
+
+	<!-- Rank Holder Start -->
+	<div id="rs-latest-news" class="rs-latest-news sec-spacer">
+		<div class="container">
+			<div class="sec-title mb-50 text-center">
+				<h2>University (SPPU) Rank Holders</h2>      
+			</div>
+			<div class="rs-carousel owl-carousel university-topper-carousel" data-loop="true" data-items="4" data-margin="30" data-autoplay="true" data-autoplay-timeout="1500" data-smart-speed="1200" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false" data-md-device="4" data-md-device-nav="false" data-md-device-dots="false">
+
+				<div class="product-item">
+					<div class="product-img mb-3">
+						<a href="#">
+							<img src="images/toppers/Shruti Sudhir Chavan.jpg" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Shruti Sudhir Chavan</a></h4>
+					<div class="row">
+						<div class="col-6">
+							<div class="product-price">Year:       </div>
+							<div class="product-price">Department: </div>
+							<div class="product-price">SGPA: 		</div>
+							<div class="product-price">Rank:        </div>
+						</div>
+						<div class="col-6">
+							<div class="product-price">2018-2019</div>
+							<div class="product-price">ENTC</div>
+							<div class="product-price">9.61</div>
+							<div class="product-price">1</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="product-item">
+					<div class="product-img mb-3">
+						<a href="#">
+							<img src="images/toppers/Madhura Manish Pawar.jpg" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Madhura Manish Pawar</a></h4>
+					<div class="row">
+						<div class="col-6">
+							<div class="product-price">Year:       </div>
+							<div class="product-price">Department: </div>
+							<div class="product-price">SGPA: 		</div>
+							<div class="product-price">Rank:        </div>
+						</div>
+						<div class="col-6">
+							<div class="product-price">2018-2019</div>
+							<div class="product-price">COMP</div>
+							<div class="product-price">9.64</div>
+							<div class="product-price">1</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="product-item">
+					<div class="product-img mb-3">
+						<a href="#">
+							<img src="images/toppers/yash.webp" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Yash Patwardhan</a></h4>
+					<div class="row">
+						<div class="col-6">
+							<div class="product-price">Year:       </div>
+							<div class="product-price">Department: </div>
+							<div class="product-price">SGPA: 		</div>
+							<div class="product-price">Rank:        </div>
+						</div>
+						<div class="col-6">
+							<div class="product-price">2019-2020</div>
+							<div class="product-price">FE</div>
+							<div class="product-price">9.86</div>
+							<div class="product-price">1</div>
+						</div>
+					</div>	
+				</div>
+				<div class="product-item">
+					<div class="product-img mb-3">
+						<a href="#">
+							<img src="images/toppers/pratik.webp" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Pratik Agarwal</a></h4>
+					<div class="row">
+						<div class="col-6">
+							<div class="product-price">Year:       </div>
+							<div class="product-price">Department: </div>
+							<div class="product-price">SGPA: 		</div>
+							<div class="product-price">Rank:        </div>
+						</div>
+						<div class="col-6">
+							<div class="product-price">2019-2020</div>
+							<div class="product-price">COMP</div>
+							<div class="product-price">10</div>
+							<div class="product-price">1</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="product-item">
+					<div class="product-img mb-3">
+						<a href="#">
+							<img src="images/toppers/saurabh.webp" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Sourabh Badgujar</a></h4>
+					<div class="row">
+						<div class="col-6">
+							<div class="product-price">Year:       </div>
+							<div class="product-price">Department: </div>
+							<div class="product-price">SGPA: 		</div>
+							<div class="product-price">Rank:        </div>
+						</div>
+						<div class="col-6">
+							<div class="product-price">2019-2020</div>
+							<div class="product-price">IT</div>
+							<div class="product-price">10</div>
+							<div class="product-price">1</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="product-item">
+					<div class="product-img mb-3">
+						<a href="#">
+							<img src="images/toppers/atharva.webp" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="#" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Atharva Sadre</a></h4>
+					<div class="row">
+						<div class="col-6">
+							<div class="product-price">Year:       </div>
+							<div class="product-price">Department: </div>
+							<div class="product-price">SGPA: 		</div>
+							<div class="product-price">Rank:        </div>
+						</div>
+						<div class="col-6">
+							<div class="product-price">2019-2020</div>
+							<div class="product-price">ENTC</div>
+							<div class="product-price">9.88</div>
+							<div class="product-price">1</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div class="text-center mt-3 mb-5" >
+			<a href="./university toppers/" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> <font color=blue size=5>For more university (SPPU) rank holders, click here<i class="fa fa-angle-double-right"></i></font></a>
+		</div>
+	</div>
+	<!-- Rank Holder End -->
+
+	<!-- Magazines Start -->
+	<div id="rs-products" class="rs-products sec-spacer sec-color">
+		<div class="container">
+			<div class="sec-title mb-50 text-center">
+				<h2>Magazines & Newsletters</h2>      
+			</div>
+			<div class="rs-carousel owl-carousel our-publication-carousel" data-loop="true" data-items="4" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="1200" data-dots="true" data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="true" data-md-device="4" data-md-device-nav="true" data-md-device-dots="true">
+				<div class="product-item">
+					<div class="product-img">
+						<a href="pictoreal/pdf/PictorealMagazineVol27.pdf">
+							<img src="pictoreal/pdf/CoverPage2025_V27.png" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="pictoreal/pdf/PictorealMagazineVol27.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> PICTOREAL</a></h4>
+					<span class="product-price">Pictoreal</span>
+					<div class="product-btn">
+						<a href="pictoreal/pdf/PictorealMagazineVol27.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-img">
+						<a href="https://pict.edu/CE-dept/pdf/newsletter/Updated%20CE%20DEPARTMENT%20NEWSLETTER%20JULY%20-%20DECEMBER%202024.pdf" target="_blank">
+							<img src="images/department/COMP.png" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="https://pict.edu/CE-dept/pdf/newsletter/Updated%20CE%20DEPARTMENT%20NEWSLETTER%20JULY%20-%20DECEMBER%202024.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> CE Department Newsletter</a></h4>
+					
+					<div class="product-btn">
+						<a href="https://pict.edu/CE-dept/pdf/newsletter/Updated%20CE%20DEPARTMENT%20NEWSLETTER%20JULY%20-%20DECEMBER%202024.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-img">
+						<a href="./ENTC-dept/pdf/E-Magazine 2025-26 SEM -I-Final.pdf">
+							<img src="images/department/EnTC.png" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="./ENTC-dept/pdf/E-Magazine 2025-26 SEM -I-Final.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> E&TC Department Newsletter</a></h4>
+					
+					<div class="product-btn">
+						<a href="./ENTC-dept/pdf/E-Magazine 2025-26 SEM -I-Final.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				
+				<div class="product-item">
+					<div class="product-img">
+						<a href="./IT-dept/pdf/PICT_IT_Department_Newsletter_2025-26.pdf" target="_blank">
+							<img src="images/department/IT.png" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="./IT-dept/pdf/PICT_IT_Department_Newsletter_2025-26.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> IT Department Newsletter</a></h4>
+					
+					<div class="product-btn">
+						<a href="./IT-dept/pdf/PICT_IT_Department_Newsletter_2025-26.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				
+				<div class="product-item">
+					<div class="product-img">
+						<a href="https://pict.edu/ECE-dept/pdf/ECE%20Department%20newsletter.pdf" target="_blank">
+							<img src="images/department/IT.png" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="https://pict.edu/ECE-dept/pdf/ECE%20Department%20newsletter.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> ECE Department Newsletter</a></h4>
+					
+					<div class="product-btn">
+						<a href="https://pict.edu/ECE-dept/pdf/ECE%20Department%20newsletter.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				
+				<div class="product-item">
+					<div class="product-img">
+						<a href="https://pict.edu/AIDS-dept/pdf/PICT Newsletter AI&DS A.Y. 2025-26.pdf" target="_blank">
+							<img src="images/department/IT.png" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="https://pict.edu/AIDS-dept/pdf/PICT Newsletter AI&DS A.Y. 2025-26.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> AIDS Department Newsletter</a></h4>
+					
+					<div class="product-btn">
+						<a href="https://pict.edu/AIDS-dept/pdf/PICT Newsletter AI&DS A.Y. 2025-26.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				
+				<div class="product-item">
+					<div class="product-img">
+						<a href="https://pictmun.github.io/Newsletter/">
+							<img src="images/magazine/The Inquisitor.webp" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="https://pictmun.github.io/Newsletter/" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> THE INQUISITOR</a></h4>
+					<span class="product-price">PICT MUN</span>
+					<div class="product-btn">
+						<a href="https://pictmun.github.io/Newsletter/ " class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-img">
+						<a href="https://pictieee.in/ping181.html">
+							<img src="pdf/homepage/ping18.jpg" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="https://pictieee.in/ping181.html" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> P.I.N.G</a></h4>
+					<span class="product-price">PICT IEEE</span>
+					<div class="product-btn">
+						<a href="https://pictieee.in/ping181.html" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-img">
+						<a href="https://edcpict.github.io/EDC_Website/pdf/Newletter-2019.pdf">
+							<img src="images/magazine/insights.webp" alt="" />
+						</a>
+					</div>
+					<h4 class="product-title"><a href="https://edcpict.github.io/EDC_Website/Activities.html" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> INSIGHTS</a></h4>
+					<span class="product-price">PICT EDC</span>
+					<div class="product-btn">
+						<a href="https://edcpict.github.io/EDC_Website/pdf/Newletter-2019.pdf" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Read Online</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Magazines End -->
+
+
+	<!-- Testimonial Start -->
+	<div id="rs-testimonial-2" class="rs-testimonial bg5 sec-spacer">
+		<div class="container">
+			<div class="sec-title mb-50">
+				<h2 class="white-color">Testimonials</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div  class="rs-carousel owl-carousel" data-loop="true" data-items="2" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="1200" data-dots="false" data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="false" data-md-device="2" data-md-device-nav="true" data-md-device-dots="false">
+						<div class="testimonial-item">
+							<div class="testi-img" >
+								<img src="images/testimonial/mayur.webp" alt="Mayur Patil">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Mayur Patil</h4>
+								<p style="text-align: justify;" class="overflow-testimonial">
+									It was my immense luck and fortune to be a part of PICT where I can grow. The entire faculty and department leave no stone unturned to shape one's future. It's their efforts that make me count myself into better professionals. I am also grateful to TNP Cell for organizing placements in this pandemic and helping students to get placed in dream companies. Overall it was a great experience and lifetime memory at PICT.
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/medhavi.webp" alt="Medhavi Pande">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Medhavi Pande</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									PICT believes in bringing the best out of each student. The faculty has always been very supportive. Apart from the academics and placements being above expectations, the college has always encouraged students to participate in extra-co curricular activities. 
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/Sourav_Patil.webp" alt="Sourav_Patil">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Sourav Patil</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									PICT has been a great contributor to the development of my personality. I have established my leadership, time management and team skills and have also been able to advance these skills to the whole new augment level. With an attitude of being ever ready to help, and not only delivering classroom teachings, but they are also the pillars of the learning gained from this esteemed college and this is a treasure for life.
+									It was wonderful experience of learning with prolific exposure to outside. Huge respect, love and devotion for entire faculty members and department. It's their efforts that make me to count myself into better professionals.
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/shardul.webp" alt="Shardul Khandekar">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Shardul Khandekar</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									At PICT, knowledge is not a restricted term. Students have the freedom to explore different domains of their choice. Students get the opportunity to work on real-time industrial projects under the guidance of highly qualified and experienced professors. 
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/shreya.webp" alt="Shreya Rodge">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Shreya Rodge</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									I am pursuing my final year B.E. in Electronics and Telecommunications Engineering. The quality of teaching is very good and understandable. The curriculum is updated and includes recent developments in the field of the student and motivates them to achieve their goal to success. The campus provides students with a comprehensive list of features and facilities to cater to the students' learning needs and comfort. In addition to this, the college has an excellent Training and Placement Cell that provides the students with ample opportunities.
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/minal.webp" alt="Minal Kokade">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Minal Kokade</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									PICT is one of the top most Engineering colleges in Pune. All the courses conducted by college were great. Teachers and lab assistants have good knowledge of the subjects. Apart from curricular many extra curricular activities are also held by college for overall growth of the students. I enjoyed the learning process and grateful for getting admission here. 
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/varad.webp" alt="Varad Joshi">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Varad Joshi</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									It was a great pleasure to have spent 4 years of my college life in PICT. The entire faculty and department is there to support you in every walk of your professional life. It was very good opportunity to learn and excel. I am also grateful to Training and Placement Cell to provide students ample opportunities. It was wonderful experience of learning with prolific exposure to outside.
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/sahil.webp" alt="Sahil Naphadea">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Sahil Naphadea</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									The 4 years in college were absolutely amazing. Working for several communities, partaking in the college events, both technical and cultural; are some of the fondest memories of mine. 
+									The support from teachers and staff, timely help regarding anything as well as a streamlined processing, made the experience even better. Last but not the least, the friendships that were made in these four years, will always be cherished.
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/hrishikesh.webp" alt="Hrishikesh Dange">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Hrishikesh Dange</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									Being a reputed college in the city, PICT attracts lots of opportunities which  opens door for various domains for students. The atmosphere is technically enriching ,which sustains the competitive spirit of the college which indeed maintains it's reputation.
+									Despite being a computer oriented college, it has great command over social,cultural and artistic  domain along with proficiency in robotics domain as well. Its certainly a college worthy of giving you a great career boost.
+								</p>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="testi-img">
+								<img src="images/testimonial/piyush.webp" alt="Piyush Gulhane">
+							</div>
+							<div class="testi-desc">
+								<h4 class="testi-name">Piyush Gulhane</h4>
+								<p style="text-align: justify;"  class="overflow-testimonial">
+									At PICT , it was my great pleasure to have spent 4 years of my college life. In these years I had a great experience in every field be it studies, sports, social service and many more. Every professor played an important role in shaping my career. Whatever I am today after engineering is the output of efforts put together by all teachers, staff and their valuable guidance.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial End -->
+
+
+	<!-- Footer Start -->
+	<footer id="rs-footer" class="bg3 rs-footer">
+		<div class="container">
+			<!-- Footer Address -->
+			<div>
+				<div class="row footer-contact-desc">
+					<div class="col-md-4">
+						<div class="contact-inner">
+							<a href="https://goo.gl/maps/XNZ8QTqTK2SXzztq7">
+								<i class="fa fa-map-marker"></i>
+							</a>
+							<h4 class="contact-title">Address</h4>
+							<p class="contact-desc">
+								Survey No. 27, Near Trimurti Chowk<br>
+								Dhankawadi, Pune - 411043<br>
+								<a href="https://www.google.com/maps/dir//SCTR'S+Pune+Institute+of+Computer+Technology+Survey+No.+27+Near,+Trimurti+Chowk,+Bharati+Vidyapeeth+Campus,+Dhankawadi+Pune,+Maharashtra+411043/@18.4575421,73.8508336,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bc2eac85230ba47:0x871eddd0a8a0a108!2m2!1d73.8508336!2d18.4575421" class="popup-bullet" target="_blank"><i class="fa fa-angle-double-right"></i> Google Maps Link</a>
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="contact-inner">
+							<i class="fa fa-phone"></i>
+							<h4 class="contact-title">Contact Details</h4>
+							<p class="contact-desc">
+								Phone No.:<br> 020 24376190<br>020 24375477<br> +91 20 24371101<br>
+								Fax: +91 20 24364741<br>
+								Email Id: registrar@pict.edu
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="contact-inner">
+							<i class="fa fa-envelope"></i>
+							<h4 class="contact-title">Working Hours</h4>
+							<p class="contact-desc">
+								10:00 AM to 5:00 PM (Monday to Saturday)<br>
+                               [Except on Holidays including 1st and 3rd Saturday]
+
+							</p>
+						</div>
+					</div>
+				</div>					
+			</div>
+		</div>
+
+		
+	</footer>
+	<!-- Footer End -->
+
+
+	<!-- start scrollUp  -->
+	<div id="scrollUp">
+		<i class="fa fa-angle-up"></i>
+	</div>
+
+
+	<!-- Search Modal Start -->
+	<div aria-hidden="true" class="modal fade search-modal" role="dialog" tabindex="-1">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true" class="fa fa-close"></span>
+		</button>
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="search-block clearfix">
+					<form>
+						<div class="form-group">
+							<input class="form-control" placeholder="eg: Computer Technology" type="text">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Search Modal End  -->
+
+	<!-- modernizr js -->
+	<script src="js/modernizr-2.8.3.min.js"></script>
+	<!-- jquery latest version -->
+	<script src="js/jquery.min.js"></script>
+	<!-- bootstrap js -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- owl.carousel js -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- slick.min js -->
+	<script src="js/slick.min.js"></script>
+	<!-- isotope.pkgd.min js -->
+	<script src="js/isotope.pkgd.min.js"></script>
+	<!-- imagesloaded.pkgd.min js -->
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<!-- wow js -->
+	<script src="js/wow.min.js"></script>
+	<!-- counter top js -->
+	<script src="js/waypoints.min.js"></script>
+	<script src="js/jquery.counterup.min.js"></script>
+	<!-- magnific popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<!-- rsmenu js -->
+	<script src="js/rsmenu-main.js"></script>
+	<!-- plugins js -->
+	<script src="js/plugins.js"></script>
+	<!-- main js -->
+	<script src="js/main.js"></script>
+
+	<script src="js/underscore-min.js"></script>
+	<script src= "js/moment-2.2.1.js"></script>
+	<script src="js/clndr.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/drag.js"></script>
+
+	<script async src="https://cse.google.com/cse.js?cx=014285411278643896804:4oz_tiqa6-8"></script>
+	
+	<script>
+		$('.placement-overview-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:1,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.imp-news-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:4,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.pict-highlights-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:2,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:3,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.upcoming-event-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:3,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.our-management-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:3,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.achievement-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:1,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.university-topper-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:4,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.virtual-lab-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:3,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.dep-result-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:2,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.our-publication-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:3,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.imp-link-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:3,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+	<script>
+		$('.imp-logo-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			responsiveClass:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				600:{
+					items:1,
+					nav:true,
+					autoplay:true
+				},
+				1000:{
+					items:4,
+					nav:true,
+					autoplay:true
+				}				
+			}
+		})
+	</script>
+<footer id="rs-footer" class="bg3 rs-footer">
+			<div class="footer-top m-0 pt-6">
+				<div class="footer-top1">
+								<div class="row footer-top3">
+									<div class="m-3 mt-0 mb-0"><a href="././various_committees/" target="_blank">Various Committees</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../Mandatory Disclosure/" target="_blank">Mandatory Disclosure</a></li></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/Audited Financial Statements_2024_25.pdf" target="_blank">Audited Financial Statement</a></div>
+									<!--<div class="m-3 mt-0 mb-0"><a href="./../FacultyInformation/" target="_blank">Faculty Information</a></li></div> -->
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/Staff Manual - 02-May - 2025 (1).pdf" target="_blank">Staff Manual</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/FE Information Brochure AY2022-23_V10_29-09-2022.pdf" target="_blank">Academic Regulations for Students</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/Counselling Cell SOPs.pdf" target="_blank">Counselling Cell SOPs</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/All_EOA_Approval_2026.pdf" target="_blank">All AICTE Approvals</a></div>
+									<!-- <div class="m-3 mt-0 mb-0"><a href="../pdf/footer/EOA Report 2022-23.PDF" target="_blank">AICTE Approval 22-23</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/EOA-Report-2023-24.pdf" target="_blank">AICTE Approval 23-24</a></div> -->
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/Information submitted to AICTE EoA 2026-27.pdf" target="_blank">Information submitted to AICTE</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/AICTE FEEDBACK FACILITY.pdf" target="_blank">AICTE Feedback Facility</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="././aicte cii survey/" target="_blank">AICTE CII Survey</a></div>
+									
+								</div>
+								<div class="row footer-top3">
+									
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/ugc_sppu_letter_merged.pdf" target="_blank">Autonomy Status (UGC & SPPU)</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../naac/" target="_blank">NAAC</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../NBA/" target="_blank">NBA</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../nirf/" target="_blank">NIRF</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../frafeeproposal/" target="_blank">FRA Fee Proposal</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/Strategic Development Plan 2020-25.pdf" target="_blank">PICT-Strategic Development Plan (SDP)</a></div>
+									
+								</div>
+								<div class="row footer-top3">
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/FY_BTECH_ARA_2024_25.pdf" target="_blank">ARA Approval(F. Y. B.TECH.)</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/DSE6271.pdf" target="_blank">ARA Approval(DSE)</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="../pdf/footer/FY_MTECH_ARA_2024_25.pdf" target="_blank">ARA Approval(M.TECH.)</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="https://aicte.gov.in/schemes/students-development-schemes" target="_blank">AICTE Scholarship/Fellowship Schemes</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="https://shebox.wcd.gov.in/" target="_blank">SHe-Box : Online Complaint Management System</a></div>
+									
+								</div>
+								<div class="row footer-top3">
+									<div class="m-3 mt-0 mb-0"><a href="./../downloads/" target="_blank">Downloads</a></li></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../disclaimer/" target="_blank">Disclaimer</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../faq/" target="_blank">FAQs</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../free-education-to-girls/" target="_blank">Free Education To Girls</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../pdf/footer/UGC_Regulations_2015.pdf" target="_blank">UGC Regulations, 2015</a></div>
+									<div class="m-3 mt-0 mb-0"><a href="./../pdf/footer/The_Sexual_Harassment_of_Women_at_Workplace-Act_2013.pdf" target="_blank">Sexual Harassment of Women at Workplace Act. 2013</a></div>
+								</div>
+								<!--<div class="row footer-top3">
+									<div class="m-3 mt-0 mb-0"><a href="https://pictmodelschool.com/" target="_blank">Useful LinksPICT Model School</a></div>
+								</div>-->
+								<!-- <div class="row footer-top3">
+									<div class="m-3 mt-0 mb-0"><a href="./developers/">Developed By WEB TEAM OF PICT</a></div>
+								</div> -->
+	
+								<div class="footer-share">
+									<ul>
+										<li><a href="https://facebook.com/PICTOfficial"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="https://www.youtube.com/@puneinstituteofcomputertec4740"><i class="fa fa-youtube"></i></a></li>
+										<li><a href="https://twitter.com/PunePict"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="https://www.linkedin.com/school/pune-institute-of-computer-technology/"><i class="fa fa-linkedin"></i></a></li>
+									</ul>
+								</div>                                
+							</div>
+						</div>
+						
+						<!-- Visitor Counter Start-->
+						
+ 
+						<center>
+						
+						  <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=385a13d85691ac9b090199182cdfca64c73d60e7'></script>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1011020/t/10"></script>
+                         </center>
+						 <br>
+						 
+						<!-- Visitor Counter End-->
+	
+						<!-- Footer Bottom --> 
+						<div class="footer-bottom">
+							<div class="container">
+								<div class="copyright">
+									<p>© 2026 <a href="./">PICT.EDU</a>. All Rights Reserved.</p>
+									<p>Developed By <a href="./developers/">&nbsp WEB TEAM &nbsp</a> OF PICT</p>
+								</div>
+							</div>
+						</div>
+						
+						
+</footer>
+</body>
+</html>

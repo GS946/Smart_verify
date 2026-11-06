@@ -1,0 +1,91 @@
+category: "New-Programme"
+academic_year: "2026-27"
+version: "1.0.0"
+rules:
+  - rule_id: "RULE-DOC-FIRE-001"
+    name: "Valid Fire Safety NOC Required"
+    description: "Institution must submit a valid Fire Safety NOC issued by the competent State Fire Authority."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "validity"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 2.14 / App. 4"
+    version: "1.0.0"
+    params:
+      doc_type: "NOC-Fire"
+      require_valid_date: true
+
+  - rule_id: "RULE-DOC-STATE-008"
+    name: "State Government NOC for New Programme"
+    description: "Prior approval / NOC from the Department of Higher/Technical Education of State Government."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "required_doc"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 2.13 / Chapter 2"
+    version: "1.0.0"
+    params:
+      doc_type: "NOC-State Govt"
+
+  - rule_id: "RULE-DOC-LAND-009"
+    name: "Land and Building Plan Verification"
+    description: "Registered land deed and approved building plan with authorized occupancy certificate."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "required_doc"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 2.12 / App. 4"
+    version: "1.0.0"
+    params:
+      doc_type: "Building plan"
+
+  - rule_id: "RULE-PAY-TER-004"
+    name: "TER Fee Payment for New Programme"
+    description: "TER processing fee must be verified as PAID in AICTE financial records."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Major"
+    clause_ref: "AICTE APH 2024-27 Clause 2.4 / Chapter 2"
+    version: "1.0.0"
+    params:
+      field_baseline: "ter_payment_status"
+      expected_value: "PAID"
+
+  - rule_id: "RULE-DOC-ACCR-005"
+    name: "Accreditation Certificate Validity"
+    description: "Where accreditation is claimed, validity must extend through commencement of the session."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "validity"
+    severity: "Major"
+    clause_ref: "AICTE APH 2024-27 Clause 2.16 / App. 6"
+    version: "1.0.0"
+    params:
+      doc_type: "Accreditation certificate"
+      require_valid_date: true
+
+  - rule_id: "RULE-ANOM-DUPDOC-006"
+    name: "Cross-Institutional Document Reuse"
+    description: "Submitted statutory documents must not match hash of documents submitted by other institutions."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "cross_record"
+    severity: "Critical"
+    clause_ref: "AICTE APH 2024-27 Clause 1.14 / Chapter 1"
+    version: "1.0.0"
+    params:
+      check_hash_collision: true
+
+  - rule_id: "RULE-INFR-PHOTO-007"
+    name: "Infrastructure Photographic Evidence Completeness & Distinctness"
+    description: "Photographs of instructional facilities must meet clarity standards and not be duplicated."
+    applies_to: ["New-Programme"]
+    academic_year: "2026-27"
+    check_type: "threshold"
+    severity: "Major"
+    clause_ref: "AICTE APH 2024-27 Clause 2.18 / Chapter 5"
+    version: "1.0.0"
+    params:
+      min_distinct_photos: 4
+      max_phash_similarity: 90

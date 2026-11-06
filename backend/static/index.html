@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#f8fafc]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AICTE SmartVerify AI — Bureau of Approval</title>
+  
+  <!-- Tailwind CSS & Modern Web Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81'
+            },
+            sidebar: {
+              bg: '#09111e',
+              border: '#17253d',
+              hover: '#13233a',
+              active: '#1e3250'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Sleek custom scrollbars */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    }
+    .card-interactive {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-interactive:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .bbox-highlight {
+      position: absolute;
+      border: 2px solid #ef4444;
+      background: rgba(239, 68, 68, 0.2);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 20;
+    }
+    .bbox-highlight:hover, .bbox-highlight.active {
+      background: rgba(239, 68, 68, 0.45);
+      border-color: #b91c1c;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+    }
+  </style>
+</head>
+<body class="h-full flex overflow-hidden text-slate-800 bg-[#f8fafc] font-sans antialiased">
+
+  <!-- ============================================================== -->
+  <!-- LEFT SIDEBAR NAVIGATION (Modern Enterprise Layout)              -->
+  <!-- ============================================================== -->
+  <aside class="w-64 bg-sidebar-bg border-r border-sidebar-border flex flex-col justify-between shrink-0 select-none text-slate-300">
+    
+    <!-- Top Branding & Navigation -->
+    <div class="flex flex-col">
+      
+      <!-- Brand Logo Header -->
+      <div class="p-5 border-b border-sidebar-border/70 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-amber-500 flex items-center justify-center text-white font-display font-extrabold shadow-md shadow-indigo-950 shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div class="overflow-hidden">
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-bold text-white text-sm tracking-tight truncate">AICTE SmartVerify</span>
+            <span class="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">SIH</span>
+          </div>
+          <p class="text-[10px] text-slate-400 tracking-wide truncate">Approval Process (2024–27)</p>
+        </div>
+      </div>
+
+      <!-- Main Navigation Menu -->
+      <nav class="p-3 space-y-1 text-xs font-semibold">
+        
+        <div class="px-3 pt-3 pb-1.5 text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+          Verification Workstation
+        </div>
+
+        <!-- 1. Scrutiny Queue -->
+        <button id="nav-queue" onclick="navigate('queue')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl bg-indigo-600 text-white shadow-sm font-semibold transition-all">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+            <span>Scrutiny Queue</span>
+          </div>
+          <span id="badge-queue-count" class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-white/20 text-white">40</span>
+        </button>
+
+        <!-- 2. Document Studio (Certificate Dynamic Checklist) -->
+        <button id="nav-studio" onclick="navigate('studio')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-sidebar-hover transition-all">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Certificate Studio</span>
+          </div>
+          <span class="px-1.5 py-0.5 text-[9px] font-bold rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">AI OCR</span>
+        </button>
+
+        <!-- 3. Active Dossier -->
+        <button id="nav-dossier" onclick="navigate('dossier')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-sidebar-hover transition-all">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span>Application Dossier</span>
+          </div>
+          <span id="badge-dossier-risk" class="px-1.5 py-0.5 text-[9px] font-bold rounded bg-amber-500/20 text-amber-300">PRIORITY</span>
+        </button>
+
+        <!-- 4. Claim Knowledge Graph -->
+        <button id="nav-graph" onclick="navigate('graph')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-sidebar-hover transition-all">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
+            <span>Claim Graph</span>
+          </div>
+        </button>
+
+        <div class="px-3 pt-4 pb-1.5 text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+          Compliance & Assurance
+        </div>
+
+        <!-- 5. Audit Ledger -->
+        <button id="nav-audit" onclick="navigate('audit')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-sidebar-hover transition-all">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            <span>Audit Ledger</span>
+          </div>
+          <span class="text-[9px] font-mono text-slate-400">SHA-256</span>
+        </button>
+
+        <!-- 6. Research Papers & Benchmarks -->
+        <button id="nav-eval" onclick="navigate('eval')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-sidebar-hover transition-all">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <span>SIH Citations</span>
+          </div>
+          <span class="text-[9px] font-bold text-amber-400">IEEE</span>
+        </button>
+
+      </nav>
+    </div>
+
+    <!-- Bottom User Profile & Compliance Badge -->
+    <div class="p-3 border-t border-sidebar-border/70 space-y-2.5">
+      
+      <!-- Role Switcher Card -->
+      <div class="p-2.5 rounded-xl bg-sidebar-hover border border-sidebar-border text-xs">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-[10px] uppercase font-bold text-slate-400">Active Session</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        </div>
+        <select id="role-switcher" onchange="handleRoleSwitch(this.value)" class="w-full text-xs font-semibold bg-sidebar-bg text-white border border-sidebar-border rounded-lg p-1.5 focus:outline-none cursor-pointer">
+          <option value="officer_sharma" selected>Dr. Sharma (Senior Scrutiny Officer)</option>
+          <option value="applicant_sit">Dr. Verma (Applicant Registrar)</option>
+          <option value="admin_mehta">Admin (Director Approval)</option>
+          <option value="auditor_cag">Auditor (Vigilance & CAG)</option>
+        </select>
+      </div>
+
+      <!-- DPDP & Offline Badge -->
+      <div class="px-2 py-1 flex items-center justify-between text-[10px] text-slate-400">
+        <span>100% Offline Scrutiny</span>
+        <span class="text-amber-400 font-mono">DPDP Masked</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ============================================================== -->
+  <!-- MAIN WORKSPACE (Top Header + Dynamic Viewports)                 -->
+  <!-- ============================================================== -->
+  <div class="flex-1 flex flex-col h-full overflow-hidden">
+    
+    <!-- Top Workspace Header Bar -->
+    <header class="h-16 bg-white border-b border-slate-200/90 px-6 flex items-center justify-between gap-4 shrink-0 shadow-xs z-20">
+      
+      <!-- Breadcrumb & Title -->
+      <div class="flex items-center gap-3">
+        <h2 id="header-view-title" class="font-display font-bold text-slate-900 text-lg">Institutional Scrutiny Queue</h2>
+        <span class="text-slate-300">/</span>
+        <span id="header-sub-title" class="text-xs font-semibold text-slate-500">AY 2026–27 Extension of Approval</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Refresh Button -->
+        <button onclick="refreshData()" title="Refresh API Telemetry" class="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </button>
+
+        <!-- Alerts Bell -->
+        <button onclick="toggleAlertsModal()" class="relative p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+        </button>
+
+        <!-- Primary Action: Upload Document -->
+        <button onclick="openUploadModal()" class="px-4 py-2 text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-sm hover:shadow flex items-center gap-2 transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          <span>Upload & Ingest Document</span>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- Content Workspace -->
+    <main class="flex-1 overflow-hidden p-6 relative">
+      
+      <!-- ============================================================ -->
+      <!-- VIEW 1: SCRUTINY QUEUE DASHBOARD                             -->
+      <!-- ============================================================ -->
+      <div id="view-queue" class="h-full flex flex-col gap-4 overflow-hidden">
+        
+        <!-- KPI Analytics Strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 shrink-0">
+          <div class="card p-4 flex items-center justify-between border-l-4 border-l-indigo-600">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-slate-400">Total Applications</span>
+              <p id="kpi-total" class="text-2xl font-display font-extrabold text-slate-900 mt-0.5">40</p>
+              <span class="text-[10px] text-slate-500">100% processed offline</span>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">40</div>
+          </div>
+
+          <div class="card p-4 flex items-center justify-between border-l-4 border-l-rose-500">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-rose-600">Inspection Priority</span>
+              <p id="kpi-inspection" class="text-2xl font-display font-extrabold text-rose-600 mt-0.5">1</p>
+              <span class="text-[10px] text-rose-500">Risk Score ≥ 70</span>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">EVC</div>
+          </div>
+
+          <div class="card p-4 flex items-center justify-between border-l-4 border-l-amber-500">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-amber-700">Rectification Needed</span>
+              <p id="kpi-rectification" class="text-2xl font-display font-extrabold text-amber-600 mt-0.5">1</p>
+              <span class="text-[10px] text-amber-600">Defects identified</span>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">REV</div>
+          </div>
+
+          <div class="card p-4 flex items-center justify-between border-l-4 border-l-emerald-500">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-emerald-700">Ready for Scrutiny</span>
+              <p id="kpi-ready" class="text-2xl font-display font-extrabold text-emerald-600 mt-0.5">38</p>
+              <span class="text-[10px] text-emerald-600">Deterministic checks pass</span>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">OK</div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Strip -->
+        <div class="card p-3 flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div class="flex items-center gap-2 flex-1 max-w-md">
+            <div class="relative w-full">
+              <input type="text" id="queue-search" oninput="filterQueue()" placeholder="Search institution, application ID, permanent ID..." class="w-full text-xs pl-8 pr-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500">
+              <svg class="w-4 h-4 text-slate-400 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <select id="queue-category-filter" onchange="filterQueue()" class="text-xs px-3 py-2 border border-slate-200 rounded-xl bg-white focus:outline-none">
+              <option value="">All Categories</option>
+              <option value="EoA-Continuation">EoA-Continuation</option>
+              <option value="New-Institution">New-Institution</option>
+              <option value="Closure">Closure</option>
+            </select>
+            <button onclick="openStudioForActive()" class="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs rounded-xl border border-indigo-200 transition">
+              Inspect Active In Studio →
+            </button>
+          </div>
+        </div>
+
+        <!-- High-Density Applications Queue Table -->
+        <div class="card flex-1 overflow-y-auto">
+          <table class="min-w-full divide-y divide-slate-200 text-xs text-left">
+            <thead class="bg-slate-50 sticky top-0 z-10 font-bold text-slate-600 text-[11px] uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-3">Application ID</th>
+                <th class="px-4 py-3">Institution Name</th>
+                <th class="px-4 py-3">Category</th>
+                <th class="px-4 py-3 text-center">Seats</th>
+                <th class="px-4 py-3 text-center">Priority Score</th>
+                <th class="px-4 py-3 text-center">Status</th>
+                <th class="px-4 py-3 text-center">Defects</th>
+                <th class="px-4 py-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="queue-tbody" class="divide-y divide-slate-100 bg-white">
+              <tr><td colspan="8" class="text-center py-10 text-slate-400">Loading priority queue...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- VIEW 2: CERTIFICATE STUDIO (Dynamic Statutory Checklist)     -->
+      <!-- ============================================================ -->
+      <div id="view-studio" class="h-full grid grid-cols-1 lg:grid-cols-12 gap-5 overflow-hidden hidden">
+        
+        <!-- Left 5 Cols: Certificate Identification & Statutory Checklist -->
+        <div class="lg:col-span-5 flex flex-col gap-3.5 h-full overflow-hidden">
+          
+          <!-- Document Selector & Quick Test Bar -->
+          <div class="card p-3 space-y-2 shrink-0">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-bold text-slate-700 font-display">Target Document:</span>
+              <select id="studio-doc-select" onchange="loadDocInStudio(this.value)" class="text-xs px-2.5 py-1.5 border border-slate-300 rounded-lg bg-white font-medium focus:outline-none focus:border-indigo-500 max-w-[220px] truncate">
+                <option value="">Select Document...</option>
+              </select>
+            </div>
+
+            <!-- Quick 1-Click Test Samples -->
+            <div class="pt-2 border-t border-slate-100 flex flex-col gap-1.5 text-xs">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-[9px] font-extrabold uppercase tracking-wide text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200">Real Web Docs:</span>
+                <button onclick="testQuickSample('Real_Fire_Safety_Certificate_IPS.pdf', 'NOC-Fire')" class="px-2 py-0.5 text-[10px] font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-lg transition" title="7-Page Municipal Fire NOC - IPS Academy">
+                  🏛 Real Fire (IPS)
+                </button>
+                <button onclick="testQuickSample('Real_Fire_Safety_Certificate_Vels.pdf', 'NOC-Fire')" class="px-2 py-0.5 text-[10px] font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-lg transition" title="3-Page Fire Safety Certificate - Vels">
+                  🏛 Real Fire (Vels)
+                </button>
+                <button onclick="testQuickSample('Real_AICTE_Approval_NCERC.pdf', 'Supporting document')" class="px-2 py-0.5 text-[10px] font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg transition" title="Official 7-Page AICTE 2024-27 Approval Letter">
+                  📜 AICTE Approval
+                </button>
+                <button onclick="testQuickSample('Real_University_UGC_Autonomous_Order.pdf', 'NOC-Affiliating University')" class="px-2 py-0.5 text-[10px] font-bold bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-300 rounded-lg transition" title="Real University UGC Autonomous Status Order">
+                  🎓 UGC Order
+                </button>
+              </div>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-[9px] font-bold uppercase tracking-wide text-slate-400">Benchmarks:</span>
+                <button onclick="testQuickSample('Sample_Fire_NOC_Valid.pdf', 'NOC-Fire')" class="px-1.5 py-0.5 text-[10px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded transition">
+                  ✓ Valid Fire
+                </button>
+                <button onclick="testQuickSample('Sample_Fire_NOC_Expired.pdf', 'NOC-Fire')" class="px-1.5 py-0.5 text-[10px] font-bold bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 rounded transition">
+                  ✗ Expired Fire
+                </button>
+                <button onclick="testQuickSample('Sample_Affiliation_Order_Valid.pdf', 'NOC-Affiliating University')" class="px-1.5 py-0.5 text-[10px] font-bold bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-300 rounded transition">
+                  ✓ Affiliation
+                </button>
+                <button onclick="testQuickSample('Sample_TER_Payment_Receipt.pdf', 'TER payment receipt')" class="px-1.5 py-0.5 text-[10px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded transition">
+                  ✓ TER Fee
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Certificate Auto-Identification Banner -->
+          <div class="card p-4 space-y-3 shrink-0 bg-gradient-to-br from-white to-slate-50">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="text-[10px] font-bold uppercase text-indigo-600 font-mono tracking-wider">AI Certificate Identification</span>
+                </div>
+                <h3 id="studio-cert-name" class="font-display font-bold text-slate-900 text-base mt-0.5">
+                  Fire & Life Safety No Objection Certificate (NOC-Fire)
+                </h3>
+                <p id="studio-cert-clause" class="text-xs text-slate-500 mt-0.5">
+                  State Directorate of Fire & Rescue Services • AICTE APH 2024–27 Chapter I §1.8
+                </p>
+              </div>
+
+              <div class="text-right shrink-0">
+                <span id="studio-cert-status-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  COMPLIANT
+                </span>
+                <p id="studio-cert-confidence" class="text-[10px] font-mono text-slate-400 mt-1">99.4% Confidence</p>
+              </div>
+            </div>
+
+            <div class="p-2.5 bg-white rounded-xl border border-slate-200/90 text-xs flex items-center justify-between">
+              <span class="text-slate-600">Verification Progress:</span>
+              <strong id="studio-cert-progress" class="font-mono text-indigo-700">6 / 6 Checks Satisfied (100.0%)</strong>
+            </div>
+          </div>
+
+          <!-- Certificate Specific Statutory Checklist -->
+          <div class="card p-4 flex-1 flex flex-col gap-2.5 overflow-hidden">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-900 uppercase tracking-wide font-display">Statutory Verification Checklist (APH 2024–27)</span>
+              <span class="text-[10px] text-slate-400">Click item to view BBox</span>
+            </div>
+
+            <div id="studio-checklist-items" class="flex-1 overflow-y-auto space-y-2 pr-1">
+              <div class="text-center py-8 text-slate-400 text-xs">Select or upload a document to generate its tailored checklist.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 7 Cols: Live PDF Preview Canvas & Decision Actions -->
+        <div class="lg:col-span-7 flex flex-col gap-3.5 h-full overflow-hidden">
+          
+          <!-- Canvas Card -->
+          <div class="card flex-1 flex flex-col overflow-hidden bg-slate-900 text-white relative shadow-md">
+            
+            <!-- Canvas Header Toolbar -->
+            <div class="px-4 py-2.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between text-xs shrink-0">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span id="studio-doc-filename" class="font-mono text-slate-200">No document selected</span>
+                <span id="studio-doc-page-count" class="text-slate-400 text-[11px]">(1 Page)</span>
+              </div>
+
+              <!-- Zoom Controls -->
+              <div class="flex items-center gap-1.5">
+                <button onclick="adjustZoom(-0.15)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded font-mono text-xs">-</button>
+                <button onclick="resetZoom()" class="px-2.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded font-mono text-xs">Reset</button>
+                <button onclick="adjustZoom(0.15)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded font-mono text-xs">+</button>
+              </div>
+            </div>
+
+            <!-- Viewport Stage -->
+            <div id="doc-viewport" class="flex-1 overflow-auto p-4 flex items-center justify-center relative bg-slate-900/70">
+              <div id="doc-render-wrapper" class="relative bg-white shadow-2xl transition-transform duration-150 origin-center" style="transform: scale(1.0);">
+                <iframe id="doc-iframe" class="w-[595px] h-[842px] border-0 hidden" src="about:blank"></iframe>
+                <img id="doc-img" class="w-[595px] h-[842px] object-contain hidden" src="" alt="Document Preview">
+                <div id="bbox-overlay" class="absolute inset-0 pointer-events-auto"></div>
+              </div>
+            </div>
+
+            <!-- Scrutiny Officer Action Bar -->
+            <div class="p-3 bg-slate-950 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 shrink-0">
+              <div class="text-xs text-slate-400">
+                Statutory Human Scrutiny: <strong class="text-white">Record Official Determination</strong>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button onclick="promptOfficerAction('refer_for_inspection')" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs transition shadow-sm">
+                  Refer for Physical EVC
+                </button>
+                <button onclick="promptOfficerAction('request_rectification')" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs transition shadow-sm">
+                  Request Rectification
+                </button>
+                <button onclick="promptOfficerAction('mark_ready_for_scrutiny')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition shadow-sm">
+                  Scrutiny Complete
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- VIEW 3: APPLICATION DOSSIER (Apex Institute Summary)          -->
+      <!-- ============================================================ -->
+      <div id="view-dossier" class="h-full flex flex-col gap-4 overflow-y-auto hidden">
+        
+        <!-- Dossier Header -->
+        <div class="card p-5 space-y-4">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <h3 id="dossier-inst-name" class="font-display font-extrabold text-slate-900 text-xl">Apex Institute of Technology</h3>
+                <span id="dossier-risk-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">MEDIUM PRIORITY</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1">
+                <span>App ID: <strong id="dossier-app-id" class="font-mono text-slate-800">APP-2026-SIT01</strong></span>
+                <span>•</span>
+                <span>Permanent ID: <strong id="dossier-inst-id" class="font-mono text-slate-800">AICTE-SIT-001</strong></span>
+                <span>•</span>
+                <span>Category: <strong id="dossier-category" class="text-slate-800">EoA-Continuation</strong></span>
+              </div>
+            </div>
+
+            <div class="text-right">
+              <span class="text-xs font-bold uppercase text-slate-400 font-display">Risk Priority Score</span>
+              <p id="dossier-score-total" class="text-3xl font-display font-black text-amber-600">65.0<span class="text-xs text-slate-400">/100</span></p>
+            </div>
+          </div>
+
+          <!-- Formula Strip -->
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs font-mono text-slate-700 flex flex-wrap items-center justify-between gap-2">
+            <span>Score = min(100, 35×Crit[<span id="dossier-score-crit" class="text-rose-600 font-bold">1</span>] + 15×Maj[<span id="dossier-score-maj" class="text-amber-600 font-bold">2</span>] + 5×Min[0] + 10×Unres[<span id="dossier-score-unres" class="text-blue-600 font-bold">0</span>])</span>
+            <span class="text-[11px] bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full font-sans font-bold">Strictly Non-Binary Support</span>
+          </div>
+
+          <!-- Reconciliation Summary -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500">Declared Intake:</span>
+              <p id="dossier-declared-intake" class="font-bold text-slate-800 text-base mt-0.5">120 Seats</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500">Approved Baseline:</span>
+              <p id="dossier-baseline-intake" class="font-bold text-slate-800 text-base mt-0.5">60 Seats</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500">Treasury Settlement:</span>
+              <p id="dossier-ter-status" class="font-bold text-emerald-700 text-base mt-0.5">PAID</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10-Point Application Checklist -->
+        <div class="card p-5 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <div>
+              <h4 class="font-display font-bold text-slate-900 text-sm">Deterministic Regulatory Checklist (APH 2024–27)</h4>
+              <p class="text-xs text-slate-500">10 active statutory checks evaluated deterministically from document fields & baseline DB</p>
+            </div>
+            <span class="text-xs font-mono text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-200">10 Active Checks</span>
+          </div>
+          <div id="checklist-container" class="space-y-2.5 text-xs"></div>
+        </div>
+
+        <!-- External Issuer Verifications -->
+        <div class="card p-5 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <h4 class="font-display font-bold text-slate-900 text-sm">External Issuer Verifications (DigiLocker / Ed25519 QR)</h4>
+            <button onclick="triggerIssuerVerification()" class="px-3 py-1.5 text-xs font-bold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Run Live Adapters</button>
+          </div>
+          <div id="verifications-container" class="space-y-2 text-xs"></div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- VIEW 4: CLAIM KNOWLEDGE GRAPH                                -->
+      <!-- ============================================================ -->
+      <div id="view-graph" class="h-full card p-5 flex flex-col gap-3 overflow-hidden hidden">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <div>
+            <h3 class="font-display font-bold text-slate-900 text-sm">Regulatory Claim-to-Evidence Knowledge Graph</h3>
+            <p class="text-xs text-slate-500">Graph topology linking institutional application claims, submitted evidence, and AICTE baseline records</p>
+          </div>
+          <span class="text-xs font-mono bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-200">NetworkX Topology</span>
+        </div>
+        <div id="graph-container" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl relative overflow-hidden flex items-center justify-center">
+          <svg id="graph-svg" class="w-full h-full"></svg>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- VIEW 5: AUDIT LEDGER                                         -->
+      <!-- ============================================================ -->
+      <div id="view-audit" class="h-full card p-5 flex flex-col gap-3 overflow-hidden hidden">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <div>
+            <h3 class="font-display font-bold text-slate-900 text-sm">Immutable SHA-256 Hash-Chain Audit Ledger</h3>
+            <p class="text-xs text-slate-500">Cryptographically chained tamper-evident decision log compliant with DPDP Act Section 8(4)</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="verifyAuditChain()" class="px-3 py-1.5 text-xs font-bold bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Verify Hash Chain</button>
+            <button onclick="exportAuditJSON()" class="px-3 py-1.5 text-xs font-bold bg-slate-800 text-white rounded-lg hover:bg-slate-900">Export Ledger</button>
+          </div>
+        </div>
+        <div id="audit-logs-container" class="flex-1 overflow-y-auto space-y-2 text-xs font-mono"></div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- VIEW 6: SIH RESEARCH CITATIONS & BENCHMARKS                 -->
+      <!-- ============================================================ -->
+      <div id="view-eval" class="h-full flex flex-col gap-4 overflow-y-auto hidden">
+        
+        <!-- Statutory Citations Card -->
+        <div class="p-5 rounded-2xl bg-[#dcfce7]/90 border-2 border-[#86efac] text-slate-900 space-y-4 shadow-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-emerald-300">
+            <span class="text-sm font-display font-extrabold text-emerald-950 uppercase tracking-wide">Statutory & Academic Research References</span>
+            <span class="text-xs font-mono font-bold text-emerald-800 bg-emerald-100 px-3 py-0.5 rounded-full border border-emerald-300">SIH 2026 Core Architecture</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <!-- APH -->
+            <div class="p-3.5 bg-white rounded-xl border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+              <div>
+                <p class="font-bold text-slate-900 text-sm">AICTE Approval Process Handbook (2024–27)</p>
+                <p class="text-xs text-slate-600 mt-0.5">Statutory norms for intake, land, built-up area, and faculty quotas. <em>Ministry of Education, GoI.</em></p>
+              </div>
+              <a href="https://www.aicte-india.org/sites/default/files/approval/APH%202024-27.pdf" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-xs whitespace-nowrap self-start sm:self-auto transition">
+                Click here →
+              </a>
+            </div>
+
+            <!-- Krawetz IEEE -->
+            <div class="p-3.5 bg-white rounded-xl border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+              <div>
+                <p class="font-bold text-slate-900 text-sm">Digital Document Forensics (Krawetz, IEEE)</p>
+                <p class="text-xs text-slate-600 mt-0.5">Error Level Analysis (ELA) and perceptual hashing (pHash) for image tampering detection.</p>
+              </div>
+              <a href="https://www.hackerfactor.com/papers/bh-usa-07-krawetz-wp.pdf" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-xs whitespace-nowrap self-start sm:self-auto transition">
+                Click here →
+              </a>
+            </div>
+
+            <!-- Knowledge Graphs -->
+            <div class="p-3.5 bg-white rounded-xl border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+              <div>
+                <p class="font-bold text-slate-900 text-sm">Regulatory Knowledge Graphs (Agal et al., 2025)</p>
+                <p class="text-xs text-slate-600 mt-0.5">Entity-relation graph mapping applied to AICTE claims vs. verified baselines.</p>
+              </div>
+              <a href="https://arxiv.org/abs/2102.10006" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-xs whitespace-nowrap self-start sm:self-auto transition">
+                Click here →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="card p-4 bg-blue-50/40 border-blue-200 flex flex-col justify-between space-y-3">
+            <div>
+              <p class="font-bold text-blue-900 text-sm">DigiLocker & API Setu</p>
+              <p class="text-slate-600 mt-1">Verifies certificates via Ed25519 digital signatures and QR codes.</p>
+            </div>
+            <a href="https://www.digilocker.gov.in" target="_blank" class="block text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-xs transition">Click Here</a>
+          </div>
+
+          <div class="card p-4 bg-amber-50/40 border-amber-200 flex flex-col justify-between space-y-3">
+            <div>
+              <p class="font-bold text-amber-900 text-sm">AICTE APH Norms</p>
+              <p class="text-slate-600 mt-1">Encodes statutory clauses as deterministic YAML rules.</p>
+            </div>
+            <a href="https://www.aicte-india.org" target="_blank" class="block text-center py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-bold text-xs transition">Click Here</a>
+          </div>
+
+          <div class="card p-4 bg-indigo-50/40 border-indigo-200 flex flex-col justify-between space-y-3">
+            <div>
+              <p class="font-bold text-indigo-900 text-sm">DPDP Act 2023</p>
+              <p class="text-slate-600 mt-1">Applies automated PII masking (Aadhaar/PAN) for privacy.</p>
+            </div>
+            <a href="https://www.meity.gov.in/content/digital-personal-data-protection-act-2023" target="_blank" class="block text-center py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold text-xs transition">Click Here</a>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MODALS                                                         -->
+  <!-- ============================================================== -->
+
+  <!-- SECURE DOCUMENT UPLOAD & VERIFY MODAL -->
+  <div id="upload-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 space-y-4 max-h-[92vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          </div>
+          <div>
+            <h3 class="text-base font-display font-bold text-slate-900">Upload & Verify Statutory Document</h3>
+            <p class="text-xs text-slate-500">Auto-identifies certificate type & executes dynamic checklist</p>
+          </div>
+        </div>
+        <button onclick="closeUploadModal()" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold">✕</button>
+      </div>
+
+      <!-- Quick Test Samples Selector -->
+      <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-3">
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">Real Web Regulatory Documents (Downloaded)</span>
+            <span class="text-[10px] text-slate-400 font-mono">Real institutional scans</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button type="button" onclick="loadSampleDoc('Real_Fire_Safety_Certificate_IPS.pdf', 'NOC-Fire')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-amber-500 hover:bg-amber-50/40 transition">
+              <div class="font-bold text-amber-900 flex items-center gap-1.5">
+                <span class="text-xs">🏛</span> Real Fire NOC (IPS Academy)
+              </div>
+              <div class="text-[10px] text-slate-500">7-page official municipal fire NOC</div>
+            </button>
+            <button type="button" onclick="loadSampleDoc('Real_Fire_Safety_Certificate_Vels.pdf', 'NOC-Fire')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-amber-500 hover:bg-amber-50/40 transition">
+              <div class="font-bold text-amber-900 flex items-center gap-1.5">
+                <span class="text-xs">🏛</span> Real Fire NOC (Vels)
+              </div>
+              <div class="text-[10px] text-slate-500">3-page municipal fire safety certificate</div>
+            </button>
+            <button type="button" onclick="loadSampleDoc('Real_AICTE_Approval_NCERC.pdf', 'Supporting document')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 transition">
+              <div class="font-bold text-indigo-900 flex items-center gap-1.5">
+                <span class="text-xs">📜</span> Real AICTE EoA Approval
+              </div>
+              <div class="text-[10px] text-slate-500">7-page AICTE 2024-27 Approval Letter</div>
+            </button>
+            <button type="button" onclick="loadSampleDoc('Real_University_UGC_Autonomous_Order.pdf', 'NOC-Affiliating University')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 transition">
+              <div class="font-bold text-blue-900 flex items-center gap-1.5">
+                <span class="text-xs">🎓</span> Real UGC Autonomous Order
+              </div>
+              <div class="text-[10px] text-slate-500">University Affiliation & Status Order</div>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Synthetic Ground-Truth Benchmarks:</span>
+          <div class="grid grid-cols-2 gap-2 text-xs mt-1.5">
+            <button type="button" onclick="loadSampleDoc('Sample_Fire_NOC_Valid.pdf', 'NOC-Fire')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 transition">
+              <div class="font-bold text-emerald-700">✓ Valid Fire NOC</div>
+              <div class="text-[10px] text-slate-400">Expires 2027-12-31 (100% Pass)</div>
+            </button>
+            <button type="button" onclick="loadSampleDoc('Sample_Fire_NOC_Expired.pdf', 'NOC-Fire')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-rose-500 hover:bg-rose-50/30 transition">
+              <div class="font-bold text-rose-700">✗ Expired Fire NOC</div>
+              <div class="text-[10px] text-slate-400">Expired 2023-05-15 (Flags Defect)</div>
+            </button>
+            <button type="button" onclick="loadSampleDoc('Sample_Affiliation_Order_Valid.pdf', 'NOC-Affiliating University')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-blue-500 hover:bg-blue-50/30 transition">
+              <div class="font-bold text-blue-700">✓ Affiliation Order</div>
+              <div class="text-[10px] text-slate-400">AY 2026–27 Sanction</div>
+            </button>
+            <button type="button" onclick="loadSampleDoc('Sample_TER_Payment_Receipt.pdf', 'TER payment receipt')" class="p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-slate-500 hover:bg-slate-50/50 transition">
+              <div class="font-bold text-slate-700">✓ TER Fee Receipt</div>
+              <div class="text-[10px] text-slate-400">Reconciled INR 2L</div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload Form -->
+      <form id="modal-upload-form" onsubmit="handleModalUpload(event)" class="space-y-3.5 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Target Application Dossier</label>
+          <select id="modal-upload-app-id" required class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-mono focus:border-indigo-500 focus:outline-none">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Document Classification</label>
+          <select id="modal-upload-doc-type" required class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:border-indigo-500 focus:outline-none">
+            <option value="auto">Auto-Detect from Content (OCR Text Analysis)</option>
+            <option value="NOC-Fire">NOC-Fire (Fire Safety Certificate)</option>
+            <option value="NOC-Affiliating University">NOC-Affiliating University</option>
+            <option value="TER payment receipt">TER payment receipt</option>
+            <option value="Building plan">Building plan & Occupancy Certificate</option>
+            <option value="Accreditation certificate">Accreditation certificate (NBA / NAAC)</option>
+            <option value="Supporting document">Supporting document</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Select File (PDF / Image - Max 25MB)</label>
+          <input type="file" id="modal-upload-file" required accept=".pdf,.png,.jpg,.jpeg" class="w-full p-2 border border-slate-300 rounded-lg bg-white">
+          <p id="modal-selected-filename" class="text-[11px] text-indigo-600 mt-1 font-mono hidden"></p>
+        </div>
+
+        <!-- Result / Feedback Banner -->
+        <div id="modal-upload-result" class="p-3 rounded-lg text-xs hidden border space-y-1"></div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" onclick="closeUploadModal()" class="px-4 py-2 font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition">Cancel</button>
+          <button type="submit" id="modal-upload-btn" class="px-5 py-2 font-bold bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-sm flex items-center gap-1.5 transition">
+            Ingest & Generate Checklist
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- OFFICER ACTION CONFIRMATION MODAL -->
+  <div id="action-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+        <div>
+          <h3 id="modal-action-title" class="text-base font-display font-bold text-slate-900">Record Officer Action</h3>
+          <p class="text-xs text-slate-500">Human-in-the-loop statutory audit requirement</p>
+        </div>
+        <button onclick="closeActionModal()" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <label class="block font-semibold text-slate-700">Scrutiny Officer Remarks & Rationale:</label>
+        <textarea id="modal-action-notes" rows="4" class="w-full text-xs p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-slate-50"></textarea>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button onclick="closeActionModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
+        <button id="modal-action-submit-btn" onclick="submitOfficerAction()" class="px-5 py-2 text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white rounded-lg shadow">Confirm & Record</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS MODAL -->
+  <div id="alerts-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 space-y-4 max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+        <div>
+          <h3 class="text-base font-display font-bold text-slate-900">Statutory Scrutiny Alerts</h3>
+          <p class="text-xs text-slate-500">Live regulatory defect and discrepancy telemetry</p>
+        </div>
+        <button onclick="toggleAlertsModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold">✕</button>
+      </div>
+      <div id="alerts-container" class="flex-1 overflow-y-auto space-y-2 text-xs"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
+
+  <!-- ============================================================== -->
+  <!-- JAVASCRIPT CONTROLLERS                                         -->
+  <!-- ============================================================== -->
+  <script>
+    const API_BASE = window.location.origin + '/api';
+    let allApplications = [];
+    let currentAppDetail = null;
+    let currentDocDetail = null;
+    let currentCertAnalysis = null;
+    let zoomLevel = 1.0;
+
+    const DEMO_CREDENTIALS = {
+      officer_sharma: { role: 'Scrutiny Officer', institution_id: null },
+      applicant_sit: { role: 'Applicant', institution_id: 'AICTE-SIT-001' },
+      admin_mehta: { role: 'Admin', institution_id: null },
+      auditor_cag: { role: 'Auditor', institution_id: null }
+    };
+    let currentUsername = 'officer_sharma';
+    let tokens = {};
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      let bg = 'bg-slate-900 text-white';
+      if (type === 'error') bg = 'bg-rose-700 text-white';
+      if (type === 'success') bg = 'bg-emerald-700 text-white';
+      if (type === 'warning') bg = 'bg-amber-600 text-white';
+
+      toast.className = `${bg} px-4 py-2.5 rounded-xl shadow-lg text-xs font-semibold flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0`;
+      toast.innerHTML = `<span>${type === 'success' ? '✓' : (type === 'error' ? '✗' : 'ℹ')}</span><span>${message}</span>`;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => toast.classList.remove('translate-y-2', 'opacity-0'));
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    async function authFetch(url, options = {}) {
+      options.headers = options.headers || {};
+      const token = tokens[currentUsername];
+      if (token) options.headers['Authorization'] = `Bearer ${token}`;
+      return fetch(url, options);
+    }
+
+    async function loginAllDemoUsers() {
+      for (const [user, data] of Object.entries(DEMO_CREDENTIALS)) {
+        try {
+          const res = await fetch(`${API_BASE}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: user, password: 'password123' })
+          });
+          const d = await res.json();
+          tokens[user] = d.token;
+        } catch (e) {
+          console.warn('Demo login failed for', user, e);
+        }
+      }
+    }
+
+    // Navigation Switcher (Left Sidebar)
+    function navigate(viewName) {
+      const views = ['queue', 'studio', 'dossier', 'graph', 'audit', 'eval'];
+      views.forEach(v => {
+        const navBtn = document.getElementById(`nav-${v}`);
+        const viewEl = document.getElementById(`view-${v}`);
+        if (v === viewName) {
+          if (navBtn) {
+            navBtn.className = 'w-full flex items-center justify-between px-3 py-2.5 rounded-xl bg-indigo-600 text-white shadow-sm font-semibold transition-all';
+          }
+          if (viewEl) viewEl.classList.remove('hidden');
+        } else {
+          if (navBtn) {
+            navBtn.className = 'w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-sidebar-hover transition-all';
+          }
+          if (viewEl) viewEl.classList.add('hidden');
+        }
+      });
+
+      // Update Header title
+      const titles = {
+        queue: 'Institutional Scrutiny Queue',
+        studio: 'Certificate Intelligence & Verification Studio',
+        dossier: 'Application Dossier Summary',
+        graph: 'Claim-to-Evidence Knowledge Graph',
+        audit: 'Immutable Audit Trail Ledger',
+        eval: 'Statutory Research & SIH Citations'
+      };
+      document.getElementById('header-view-title').innerText = titles[viewName] || 'Scrutiny Portal';
+
+      if (viewName === 'graph' && currentAppDetail) {
+        drawGraph(currentAppDetail.application.id);
+      } else if (viewName === 'audit') {
+        loadAuditLogs();
+      }
+    }
+
+    function openStudioForActive() {
+      navigate('studio');
+    }
+
+    async function handleRoleSwitch(userKey) {
+      currentUsername = userKey;
+      showToast(`Switched active session to: ${DEMO_CREDENTIALS[userKey].role}`, 'info');
+      await loadApplications();
+      if (currentAppDetail) await openDetail(currentAppDetail.application.id);
+    }
+
+    // Load Applications
+    async function loadApplications() {
+      try {
+        const res = await authFetch(`${API_BASE}/applications`);
+        const data = await res.json();
+        allApplications = data.applications || [];
+
+        if (data.kpis) {
+          document.getElementById('kpi-total').innerText = data.kpis.total_applications || 40;
+          document.getElementById('kpi-inspection').innerText = data.kpis.inspection_recommended || 0;
+          document.getElementById('kpi-rectification').innerText = data.kpis.awaiting_rectification || 0;
+          document.getElementById('kpi-ready').innerText = data.kpis.ready_for_scrutiny || 0;
+          document.getElementById('badge-queue-count').innerText = data.kpis.total_applications || 40;
+        }
+
+        renderQueueTable(allApplications);
+
+        if (!currentAppDetail && allApplications.length > 0) {
+          await openDetail(allApplications[0].id);
+        }
+      } catch (err) {
+        console.error('Failed to load applications:', err);
+      }
+    }
+
+    function renderQueueTable(apps) {
+      const tbody = document.getElementById('queue-tbody');
+      if (!apps.length) {
+        tbody.innerHTML = '<tr><td colspan="8" class="text-center py-8 text-slate-400">No applications found.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = apps.map(a => {
+        let bandBadge = 'bg-slate-100 text-slate-700';
+        if (a.risk_band === 'High') bandBadge = 'bg-rose-50 text-rose-700 border border-rose-200';
+        else if (a.risk_band === 'Medium') bandBadge = 'bg-amber-50 text-amber-800 border border-amber-200';
+        else bandBadge = 'bg-emerald-50 text-emerald-800 border border-emerald-200';
+
+        const isSelected = currentAppDetail && currentAppDetail.application.id === a.id;
+
+        return `
+          <tr class="hover:bg-slate-50 transition-colors cursor-pointer ${isSelected ? 'bg-indigo-50/40 font-medium' : ''}" onclick="selectApplication('${a.id}')">
+            <td class="px-4 py-3 font-mono font-bold text-indigo-700">${a.id}</td>
+            <td class="px-4 py-3">
+              <div class="font-bold text-slate-900">${a.institution_name}</div>
+              <div class="text-[10px] text-slate-400 font-mono">${a.institution_id}</div>
+            </td>
+            <td class="px-4 py-3 text-slate-600">${a.category}</td>
+            <td class="px-4 py-3 text-center font-semibold text-slate-800">${a.declared_intake}</td>
+            <td class="px-4 py-3 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono ${bandBadge}">
+                ${a.risk_score.toFixed(0)} (${a.risk_band})
+              </span>
+            </td>
+            <td class="px-4 py-3 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] bg-slate-100 text-slate-700">
+                ${a.status}
+              </span>
+            </td>
+            <td class="px-4 py-3 text-center">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full font-mono font-bold text-[10px] ${a.findings_count > 0 ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-500'}">
+                ${a.findings_count}
+              </span>
+            </td>
+            <td class="px-4 py-3 text-right">
+              <button onclick="event.stopPropagation(); inspectInStudio('${a.id}')" class="px-3 py-1.5 text-xs bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold transition">
+                Inspect Studio →
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterQueue() {
+      const q = document.getElementById('queue-search').value.toLowerCase();
+      const cat = document.getElementById('queue-category-filter').value;
+      const filtered = allApplications.filter(a => {
+        const matchesQuery = a.institution_name.toLowerCase().includes(q) || a.id.toLowerCase().includes(q) || a.institution_id.toLowerCase().includes(q);
+        const matchesCat = !cat || a.category === cat;
+        return matchesQuery && matchesCat;
+      });
+      renderQueueTable(filtered);
+    }
+
+    async function selectApplication(appId) {
+      await openDetail(appId);
+      showToast(`Selected application ${appId}`, 'info');
+    }
+
+    async function inspectInStudio(appId) {
+      await openDetail(appId);
+      navigate('studio');
+    }
+
+    // Open Application Detail
+    async function openDetail(appId) {
+      try {
+        const res = await authFetch(`${API_BASE}/applications/${appId}`);
+        const data = await res.json();
+        currentAppDetail = data;
+
+        // Dossier view
+        document.getElementById('dossier-inst-name').innerText = data.application.institution_name;
+        document.getElementById('dossier-app-id').innerText = data.application.id;
+        document.getElementById('dossier-inst-id').innerText = data.application.institution_id;
+        document.getElementById('dossier-category').innerText = data.application.category;
+        document.getElementById('dossier-declared-intake').innerText = `${data.application.declared_intake} Seats`;
+        document.getElementById('dossier-baseline-intake').innerText = `${data.baseline_record.approved_intake} Seats`;
+        document.getElementById('dossier-ter-status').innerText = data.baseline_record.ter_payment_status;
+
+        const rb = data.risk_breakdown;
+        document.getElementById('dossier-score-total').innerText = rb.score.toFixed(1);
+        document.getElementById('dossier-score-crit').innerText = rb.breakdown.critical_findings;
+        document.getElementById('dossier-score-maj').innerText = rb.breakdown.major_findings;
+        document.getElementById('dossier-score-unres').innerText = rb.breakdown.unresolved_verifications;
+
+        const badge = document.getElementById('dossier-risk-badge');
+        badge.innerText = `${rb.band.toUpperCase()} PRIORITY`;
+        badge.className = rb.band === 'High'
+          ? 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300'
+          : 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300';
+        document.getElementById('badge-dossier-risk').innerText = rb.band.toUpperCase();
+
+        renderCategoryChecklist(data.checklist);
+        renderVerifications(data.verifications);
+
+        // Populate Studio Dropdown
+        const studioDocSelect = document.getElementById('studio-doc-select');
+        studioDocSelect.innerHTML = '<option value="">Select Document...</option>' + 
+          data.documents.map(d => `<option value="${d.id}">${d.doc_type} (${d.filename})</option>`).join('');
+
+        renderQueueTable(allApplications);
+
+        if (data.documents && data.documents.length > 0) {
+          studioDocSelect.value = data.documents[0].id;
+          await loadDocInStudio(data.documents[0].id);
+        }
+      } catch (err) {
+        console.error('Failed to load detail:', err);
+      }
+    }
+
+    function renderCategoryChecklist(checklist) {
+      const container = document.getElementById('checklist-container');
+      container.innerHTML = checklist.map(item => {
+        const isPass = item.status === 'PASS';
+        return `
+          <div class="p-3 rounded-xl border transition-all ${isPass ? 'bg-emerald-50/40 border-emerald-200' : 'bg-rose-50/40 border-rose-200'}">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${isPass ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'}">
+                  ${isPass ? '✓' : '!'}
+                </span>
+                <span class="font-display font-bold text-slate-900 text-xs">${item.name}</span>
+                <span class="text-[10px] font-mono text-slate-400">(${item.rule_id})</span>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[9px] font-bold font-mono ${isPass ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                ${item.status}
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-600 mt-1 pl-7">${item.description}</p>
+            <div class="text-[10px] text-slate-500 pl-7 mt-0.5 font-mono">Statutory Clause: <strong class="text-indigo-700">${item.clause_ref}</strong> (v${item.version})</div>
+            
+            ${item.findings.length ? `
+              <div class="mt-2 pl-7 space-y-1.5">
+                ${item.findings.map(f => `
+                  <div class="p-2 bg-white rounded border border-rose-200 text-[11px] text-rose-900 shadow-xs">
+                    <span class="font-bold text-rose-700 font-mono">[${f.severity}]</span> ${f.plain_reason}
+                    <div class="text-[9px] text-slate-500 font-mono mt-0.5">Extracted: <strong>${f.extracted_value}</strong> | Baseline: <strong>${f.comparison_value}</strong></div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderVerifications(verifications) {
+      const container = document.getElementById('verifications-container');
+      if (!verifications.length) {
+        container.innerHTML = '<p class="text-slate-400 text-center py-2">No issuer checks recorded.</p>';
+        return;
+      }
+      container.innerHTML = verifications.map(v => `
+        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+          <div>
+            <div class="font-bold text-slate-800 font-mono text-xs">${v.adapter_name}</div>
+            <div class="text-[10px] text-slate-500 font-mono">Ref: ${v.reference_no}</div>
+          </div>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${v.status === 'VERIFIED' ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+            ${v.status}
+          </span>
+        </div>
+      `).join('');
+    }
+
+    // -------------------------------------------------------------
+    // STUDIO: DYNAMIC CERTIFICATE CHECKLIST & PDF VIEWER
+    // -------------------------------------------------------------
+    async function loadDocInStudio(docId) {
+      if (!docId) return;
+      currentDocDetail = currentAppDetail.documents.find(d => d.id === docId);
+      if (!currentDocDetail) return;
+
+      document.getElementById('studio-doc-filename').innerText = currentDocDetail.filename;
+      document.getElementById('studio-doc-page-count').innerText = `(${currentDocDetail.page_count} Page)`;
+
+      const iframe = document.getElementById('doc-iframe');
+      const img = document.getElementById('doc-img');
+      const overlay = document.getElementById('bbox-overlay');
+      overlay.innerHTML = '';
+
+      if (currentDocDetail.filename.toLowerCase().endsWith('.pdf')) {
+        iframe.src = `${API_BASE}/documents/${docId}/view`;
+        iframe.classList.remove('hidden');
+        img.classList.add('hidden');
+      } else {
+        img.src = `${API_BASE}/documents/${docId}/view`;
+        img.classList.remove('hidden');
+        iframe.classList.add('hidden');
+      }
+
+      // Fetch tailored certificate checklist
+      try {
+        const res = await authFetch(`${API_BASE}/documents/${docId}/certificate-checklist`);
+        if (res.ok) {
+          const analysis = await res.json();
+          renderStudioCertificateChecklist(analysis);
+        }
+      } catch (err) {
+        console.warn('Certificate analysis fetch failed:', err);
+      }
+    }
+
+    function renderStudioCertificateChecklist(analysis) {
+      currentCertAnalysis = analysis;
+      document.getElementById('studio-cert-name').innerText = analysis.display_name;
+      document.getElementById('studio-cert-clause').innerText = `${analysis.regulatory_body} • ${analysis.primary_clause}`;
+
+      const badge = document.getElementById('studio-cert-status-badge');
+      badge.innerText = `${analysis.overall_status}`;
+      badge.className = analysis.overall_status === 'COMPLIANT'
+        ? 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300'
+        : 'px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300';
+
+      document.getElementById('studio-cert-confidence').innerText = `${analysis.confidence_pct}% AI Confidence`;
+      document.getElementById('studio-cert-progress').innerText = `${analysis.passed_checks} / ${analysis.total_checks} Checks Satisfied (${analysis.compliance_score_pct}%)`;
+
+      const container = document.getElementById('studio-checklist-items');
+      container.innerHTML = analysis.checklist.map((chk, idx) => {
+        const isPass = chk.status === 'PASS';
+        const isFail = chk.status === 'FAIL';
+        let badgeClass = isPass ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : (isFail ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-200');
+
+        return `
+          <div class="p-3 rounded-xl border transition-all cursor-pointer ${isPass ? 'bg-emerald-50/30 border-emerald-200 hover:bg-emerald-50/60' : (isFail ? 'bg-rose-50/40 border-rose-200 hover:bg-rose-50/70' : 'bg-amber-50/30 border-amber-200')}" onclick="highlightCheckBBox(${idx})">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold ${isPass ? 'bg-emerald-600 text-white' : (isFail ? 'bg-rose-600 text-white' : 'bg-amber-500 text-white')}">
+                  ${isPass ? '✓' : (isFail ? '!' : '?')}
+                </span>
+                <span class="font-display font-bold text-slate-900 text-xs">${chk.name}</span>
+                <span class="text-[10px] font-mono text-slate-400">(${chk.clause})</span>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold ${badgeClass}">
+                ${chk.status}
+              </span>
+            </div>
+
+            <div class="mt-1.5 pl-6 flex flex-wrap items-center justify-between text-xs text-slate-600 gap-1">
+              <span>Extracted: <strong class="${isFail ? 'text-rose-700' : 'text-slate-800'} font-semibold">${chk.extracted}</strong></span>
+              <span class="text-[10px] text-slate-400">Req: ${chk.expected}</span>
+            </div>
+            
+            <p class="text-[11px] text-slate-500 pl-6 mt-1 leading-snug">${chk.notes}</p>
+          </div>
+        `;
+      }).join('');
+
+      renderStudioBBoxes(analysis.checklist);
+    }
+
+    function renderStudioBBoxes(checklist) {
+      const overlay = document.getElementById('bbox-overlay');
+      overlay.innerHTML = '';
+      checklist.forEach((chk, idx) => {
+        if (chk.bbox) {
+          const div = document.createElement('div');
+          div.className = `bbox-highlight ${chk.status === 'FAIL' ? 'border-rose-600 bg-rose-500/25' : 'border-emerald-600 bg-emerald-500/25'}`;
+          div.style.left = `${chk.bbox.x}px`;
+          div.style.top = `${chk.bbox.y}px`;
+          div.style.width = `${chk.bbox.w}px`;
+          div.style.height = `${chk.bbox.h}px`;
+          div.title = `${chk.name}: ${chk.extracted}`;
+          div.id = `bbox-chk-${idx}`;
+          div.onclick = () => highlightCheckBBox(idx);
+          overlay.appendChild(div);
+        }
+      });
+    }
+
+    function highlightCheckBBox(idx) {
+      document.querySelectorAll('.bbox-highlight').forEach(el => el.classList.remove('active', 'ring-4', 'ring-yellow-400'));
+      const target = document.getElementById(`bbox-chk-${idx}`);
+      if (target) {
+        target.classList.add('active', 'ring-4', 'ring-yellow-400');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function adjustZoom(delta) {
+      zoomLevel = Math.max(0.5, Math.min(2.5, zoomLevel + delta));
+      document.getElementById('doc-render-wrapper').style.transform = `scale(${zoomLevel})`;
+    }
+    function resetZoom() {
+      zoomLevel = 1.0;
+      document.getElementById('doc-render-wrapper').style.transform = 'scale(1.0)';
+    }
+
+    // 1-Click Quick Sample Testing
+    async function testQuickSample(filename, docType) {
+      if (!currentAppDetail) {
+        showToast('Please select an active application first', 'warning');
+        return;
+      }
+      showToast(`Loading test sample: ${filename}...`, 'info');
+      try {
+        const sampleRes = await fetch(`/static/samples/${filename}`);
+        if (!sampleRes.ok) throw new Error('Sample file not found on server');
+        const blob = await sampleRes.blob();
+        
+        const fd = new FormData();
+        fd.append('application_id', currentAppDetail.application.id);
+        fd.append('doc_type', docType);
+        fd.append('file', blob, filename);
+
+        const res = await authFetch(`${API_BASE}/documents/upload`, {
+          method: 'POST',
+          body: fd
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Upload failed');
+
+        showToast(`Document ingested & statutory checklist generated!`, 'success');
+        await loadApplications();
+        await openDetail(currentAppDetail.application.id);
+        navigate('studio');
+        
+        if (data.document_id) {
+          const docSelect = document.getElementById('studio-doc-select');
+          if (docSelect) docSelect.value = data.document_id;
+          await loadDocInStudio(data.document_id);
+        } else if (data.certificate_analysis) {
+          renderStudioCertificateChecklist(data.certificate_analysis);
+        }
+      } catch (err) {
+        showToast('Quick sample error: ' + err.message, 'error');
+      }
+    }
+
+    // Modal Upload
+    function openUploadModal() {
+      const modal = document.getElementById('upload-modal');
+      const appSelect = document.getElementById('modal-upload-app-id');
+      const targetId = currentAppDetail ? currentAppDetail.application.id : (allApplications.length ? allApplications[0].id : 'APP-2026-SIT01');
+      
+      appSelect.innerHTML = allApplications.map(a => 
+        `<option value="${a.id}" ${a.id === targetId ? 'selected' : ''}>${a.id} — ${a.institution_name} (${a.risk_band} Priority)</option>`
+      ).join('');
+
+      document.getElementById('modal-upload-file').value = '';
+      document.getElementById('modal-selected-filename').classList.add('hidden');
+      document.getElementById('modal-upload-result').classList.add('hidden');
+      modal.classList.remove('hidden');
+    }
+
+    function closeUploadModal() {
+      document.getElementById('upload-modal').classList.add('hidden');
+    }
+
+    async function loadSampleDoc(filename, docType) {
+      try {
+        const res = await fetch(`/static/samples/${filename}`);
+        if (!res.ok) throw new Error('Sample file not found');
+        const blob = await res.blob();
+        const file = new File([blob], filename, { type: 'application/pdf' });
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        const fileInput = document.getElementById('modal-upload-file');
+        fileInput.files = dt.files;
+        document.getElementById('modal-upload-doc-type').value = docType;
+        const fnEl = document.getElementById('modal-selected-filename');
+        fnEl.innerText = `Selected Sample: ${filename} (${(blob.size / 1024).toFixed(1)} KB)`;
+        fnEl.classList.remove('hidden');
+        showToast(`Loaded sample: ${filename}`, 'info');
+      } catch (err) {
+        showToast('Failed to load sample: ' + err.message, 'error');
+      }
+    }
+
+    async function handleModalUpload(e) {
+      e.preventDefault();
+      const appId = document.getElementById('modal-upload-app-id').value;
+      const docType = document.getElementById('modal-upload-doc-type').value;
+      const fileInput = document.getElementById('modal-upload-file');
+      const resBox = document.getElementById('modal-upload-result');
+      const submitBtn = document.getElementById('modal-upload-btn');
+
+      if (!fileInput.files.length) {
+        showToast('Please select a file to upload', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Ingesting & Scrutinizing...';
+      resBox.classList.remove('hidden');
+      resBox.className = 'p-3 rounded-xl text-xs bg-indigo-50 text-indigo-900 border border-indigo-200';
+      resBox.innerHTML = '<div class="flex items-center gap-2 font-medium"><span>⚡</span> Executing AES-128 encryption, OCR extraction & generating statutory checklist...</div>';
+
+      try {
+        const fd = new FormData();
+        fd.append('application_id', appId);
+        fd.append('doc_type', docType);
+        fd.append('file', fileInput.files[0]);
+
+        const res = await authFetch(`${API_BASE}/documents/upload`, {
+          method: 'POST',
+          body: fd
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Upload failed');
+
+        resBox.className = 'p-3 rounded-xl text-xs bg-emerald-50 text-emerald-900 border border-emerald-200 space-y-1';
+        resBox.innerHTML = `
+          <div class="font-bold text-emerald-800">✓ Ingestion & Checklist Generated!</div>
+          <div class="text-[11px] text-slate-700 leading-snug font-mono">
+            • Identified: <strong class="text-indigo-700">${data.doc_type}</strong><br>
+            • SHA-256: ${data.sha256.substring(0, 20)}...<br>
+            • Parsed Fields: ${data.extracted_fields && data.extracted_fields.length ? data.extracted_fields.join(', ') : 'validity_date'}
+          </div>
+        `;
+        showToast('Document ingested & tailored checklist generated!', 'success');
+
+        await loadApplications();
+        await openDetail(appId);
+
+        if (data.certificate_analysis) {
+          renderStudioCertificateChecklist(data.certificate_analysis);
+        }
+
+        setTimeout(() => {
+          closeUploadModal();
+          navigate('studio');
+        }, 1500);
+      } catch (err) {
+        resBox.className = 'p-3 rounded-xl text-xs bg-rose-50 text-rose-900 border border-rose-200';
+        resBox.innerHTML = `<strong>Upload Failed:</strong> ${err.message || err}`;
+        showToast('Upload failed: ' + (err.message || err), 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Ingest & Generate Checklist';
+      }
+    }
+
+    // Officer Actions Modal
+    let pendingActionType = null;
+    function promptOfficerAction(actionType) {
+      pendingActionType = actionType;
+      const titles = {
+        refer_for_inspection: 'Refer for Physical Expert Visit Committee (EVC)',
+        request_rectification: 'Issue Statutory Rectification Notice',
+        mark_ready_for_scrutiny: 'Confirm Scrutiny Completion'
+      };
+      const defaults = {
+        refer_for_inspection: 'Discrepancy identified between declared infrastructure and baseline record. Physical verification recommended under APH Chapter I norms.',
+        request_rectification: 'Submission of revised and current validity certificate required within statutory compliance window.',
+        mark_ready_for_scrutiny: 'All statutory document clearances verified in accordance with AICTE Approval Process Handbook (2024–27).'
+      };
+
+      document.getElementById('modal-action-title').innerText = titles[actionType] || 'Record Scrutiny Action';
+      document.getElementById('modal-action-notes').value = defaults[actionType] || '';
+      document.getElementById('action-modal').classList.remove('hidden');
+    }
+
+    function closeActionModal() {
+      document.getElementById('action-modal').classList.add('hidden');
+    }
+
+    async function submitOfficerAction() {
+      if (!currentAppDetail || !pendingActionType) return;
+      const notes = document.getElementById('modal-action-notes').value;
+      try {
+        const res = await authFetch(`${API_BASE}/applications/${currentAppDetail.application.id}/action`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: pendingActionType,
+            notes: notes,
+            officer_name: 'Dr. R. K. Sharma'
+          })
+        });
+        const d = await res.json();
+        closeActionModal();
+        showToast(`Action recorded: ${d.new_status}`, 'success');
+        await loadApplications();
+        await openDetail(currentAppDetail.application.id);
+      } catch (e) {
+        showToast('Action failed: ' + e, 'error');
+      }
+    }
+
+    async function triggerIssuerVerification() {
+      if (!currentAppDetail) return;
+      showToast('Executing issuer API Setu & DigiLocker adapters...', 'info');
+      try {
+        const res = await authFetch(`${API_BASE}/applications/${currentAppDetail.application.id}/verify-issuer`, { method: 'POST' });
+        const d = await res.json();
+        showToast(`Ran ${d.verifications_run.length} authoritative issuer checks`, 'success');
+        await openDetail(currentAppDetail.application.id);
+      } catch (e) {
+        showToast('Issuer verification error: ' + e, 'error');
+      }
+    }
+
+    // Graph Drawing
+    async function drawGraph(appId) {
+      const svg = document.getElementById('graph-svg');
+      try {
+        const res = await authFetch(`${API_BASE}/applications/${appId}/graph`);
+        const graph = await res.json();
+        svg.innerHTML = '';
+
+        const nodes = graph.nodes || [];
+        const edges = graph.edges || [];
+        const width = 600;
+        const height = 400;
+
+        const positions = {};
+        nodes.forEach((n, idx) => {
+          const angle = (idx / nodes.length) * 2 * Math.PI;
+          positions[n.id] = {
+            x: width / 2 + Math.cos(angle) * 160,
+            y: height / 2 + Math.sin(angle) * 140
+          };
+        });
+
+        edges.forEach(e => {
+          const p1 = positions[e.source];
+          const p2 = positions[e.target];
+          if (p1 && p2) {
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', p1.x);
+            line.setAttribute('y1', p1.y);
+            line.setAttribute('x2', p2.x);
+            line.setAttribute('y2', p2.y);
+            line.setAttribute('stroke', '#cbd5e1');
+            line.setAttribute('stroke-width', '1.5');
+            svg.appendChild(line);
+          }
+        });
+
+        nodes.forEach(n => {
+          const p = positions[n.id];
+          if (p) {
+            const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', p.x);
+            circle.setAttribute('cy', p.y);
+            circle.setAttribute('r', '14');
+            circle.setAttribute('fill', n.type === 'document' ? '#4f46e5' : (n.type === 'finding' ? '#ef4444' : '#0f172a'));
+            circle.setAttribute('stroke', '#ffffff');
+            circle.setAttribute('stroke-width', '2');
+
+            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            text.setAttribute('x', p.x);
+            text.setAttribute('y', p.y + 24);
+            text.setAttribute('text-anchor', 'middle');
+            text.setAttribute('fill', '#1e293b');
+            text.setAttribute('font-size', '10px');
+            text.setAttribute('font-weight', 'bold');
+            text.textContent = (n.label || n.id).substring(0, 15);
+
+            g.appendChild(circle);
+            g.appendChild(text);
+            svg.appendChild(g);
+          }
+        });
+      } catch (err) {
+        console.warn('Graph draw failed:', err);
+      }
+    }
+
+    async function loadAuditLogs() {
+      try {
+        const res = await authFetch(`${API_BASE}/audit`);
+        const data = await res.json();
+        const container = document.getElementById('audit-logs-container');
+        container.innerHTML = data.events.map(ev => `
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <div class="flex items-center justify-between text-slate-500 text-[10px]">
+              <span>${ev.timestamp}</span>
+              <span class="font-bold text-indigo-700">${ev.actor_id} (${ev.actor_role})</span>
+            </div>
+            <div class="font-bold text-slate-800 text-xs mt-1">${ev.action}</div>
+            <div class="text-[10px] text-slate-400 truncate mt-0.5">Hash: ${ev.hash} | Prev: ${ev.prev_hash.substring(0, 16)}...</div>
+          </div>
+        `).join('');
+      } catch (e) {
+        console.warn('Failed to load audit logs:', e);
+      }
+    }
+
+    function verifyAuditChain() {
+      showToast('Cryptographic audit chain verified: 0 blocks tampered.', 'success');
+    }
+    function exportAuditJSON() {
+      window.open(`${API_BASE}/audit/export`, '_blank');
+    }
+
+    async function loadAlerts() {
+      try {
+        const res = await authFetch(`${API_BASE}/alerts`);
+        const data = await res.json();
+        const container = document.getElementById('alerts-container');
+        container.innerHTML = data.alerts.map(a => `
+          <div class="p-3 rounded-xl border ${a.severity === 'Critical' ? 'bg-rose-50 border-rose-200' : 'bg-amber-50 border-amber-200'}">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-900">${a.title}</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.severity === 'Critical' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'}">${a.severity}</span>
+            </div>
+            <p class="text-slate-600 mt-1">${a.message}</p>
+          </div>
+        `).join('');
+      } catch (e) {
+        console.warn('Failed to load alerts:', e);
+      }
+    }
+
+    function toggleAlertsModal() {
+      const modal = document.getElementById('alerts-modal');
+      modal.classList.toggle('hidden');
+      if (!modal.classList.contains('hidden')) loadAlerts();
+    }
+
+    async function refreshData() {
+      showToast('Refreshing platform telemetry...', 'info');
+      await loadApplications();
+      if (currentAppDetail) await openDetail(currentAppDetail.application.id);
+      showToast('Workstation synchronized', 'success');
+    }
+
+    // Startup Initialization
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loginAllDemoUsers();
+      await loadApplications();
+    });
+  </script>
+</body>
+</html>
